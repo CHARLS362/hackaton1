@@ -67,7 +67,7 @@ const StatCard = ({ stat }: { stat: (typeof stats)[0] }) => {
 
 export function LiveStats() {
   return (
-    <section className="bg-background">
+    <section className="bg-slate-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative -mt-24 md:-mt-20 z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (

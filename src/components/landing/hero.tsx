@@ -34,21 +34,20 @@ export function Hero() {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
       >
-        <source src="/videos/hero-background.mp4" type="video/mp4" />
+        <source src="/videos/hero-background-light.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-white/40" />
       <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col items-center">
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tight animate-fade-in-up font-headline">
-          Explora el
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tight animate-fade-in-up font-headline text-slate-800">
+          Protegiendo el
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-            futuro del Titicaca
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
+            corazón de los Andes
           </span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-slate-300 animate-fade-in-up animation-delay-200">
-          Descubra, analice y conecte la investigación científica del lago
-          con la tecnología de IA avanzada.
+        <p className="mt-6 max-w-2xl text-lg text-slate-600 animate-fade-in-up animation-delay-200">
+          Una plataforma inteligente para el monitoreo y la preservación del Lago Titicaca, uniendo tecnología y comunidad.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animation-delay-400">
           <Button
@@ -65,7 +64,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="outline"
-            className="group rounded-full text-lg px-8 py-6 border-slate-500 text-slate-300 hover:bg-slate-700 hover:text-white transition-all"
+            className="group rounded-full text-lg px-8 py-6 border-slate-400 text-slate-600 hover:bg-slate-100 hover:text-slate-800 transition-all"
             onClick={handlePlayWelcome}
             disabled={isLoading}
           >

@@ -53,7 +53,7 @@ export function Features() {
   const satelliteImage = PlaceHolderImages.find((p) => p.id === "satellite-map");
 
   return (
-    <section id="modules" className="py-12 sm:py-16 lg:py-24 bg-background">
+    <section id="modules" className="py-12 sm:py-16 lg:py-24 bg-slate-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">
@@ -68,7 +68,7 @@ export function Features() {
           {features.map((feature) => (
             <Link href="/dashboard" key={feature.title} className={feature.className}>
               <Card
-                className={`group h-full relative overflow-hidden rounded-2xl bg-slate-100/50 dark:bg-slate-800/50 hover:bg-card dark:hover:bg-slate-800 hover:shadow-xl transition-all duration-300 border hover:border-primary flex flex-col`}
+                className={`group h-full relative overflow-hidden rounded-2xl bg-white hover:bg-slate-50 hover:shadow-xl transition-all duration-300 border hover:border-primary flex flex-col`}
               >
                 <CardHeader>
                   <div className="flex items-center gap-3">

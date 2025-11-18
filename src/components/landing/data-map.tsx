@@ -8,13 +8,13 @@ import { Compass } from "lucide-react";
 
 export function DataMap() {
   const geoJsonStyle = {
-    fill: "hsla(224.3, 76.3%, 48%, 0.5)",
-    stroke: "hsla(210, 40%, 98%, 1)",
+    fill: "hsla(217, 91%, 60%, 0.2)",
+    stroke: "hsla(217, 91%, 60%, 0.8)",
     strokeWidth: 2,
   };
 
   return (
-    <section id="map" className="py-12 sm:py-16 lg:py-24 bg-background">
+    <section id="map" className="py-12 sm:py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">
@@ -26,7 +26,7 @@ export function DataMap() {
           </p>
         </div>
 
-        <div className="relative rounded-2xl shadow-2xl bg-slate-800 border border-slate-700 p-2 lg:p-4">
+        <div className="relative rounded-2xl shadow-2xl bg-slate-100 border border-slate-200 p-2 lg:p-4">
           <div className="flex items-center gap-2 px-2 pt-1">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -37,7 +37,7 @@ export function DataMap() {
               defaultCenter={[-15.9, -69.4]}
               defaultZoom={8}
               provider={(x, y, z) => {
-                return `https://{s}.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}.png`;
+                return `https://{s}.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png`;
               }}
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
               attributionPrefix={false}
@@ -49,7 +49,7 @@ export function DataMap() {
                 styleCallback={() => geoJsonStyle}
               />
             </Map>
-            <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-all hover:bg-black/10 group z-10">
+            <div className="absolute inset-0 flex items-center justify-center bg-white/30 transition-all hover:bg-white/10 group z-10">
               <Button
                 size="lg"
                 asChild

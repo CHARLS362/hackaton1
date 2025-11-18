@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A wide shot of Lake Titicaca at sunrise or sunset.",
+      "imageUrl": "https://images.unsplash.com/photo-1578920677448-75b94bb00339?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxMYWtlJTIwVGl0aWNhY2F8ZW58MHx8fHwxNzYzNDcxMzYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Lake Titicaca"
+    },
+    {
+      "id": "satellite-map",
+      "description": "An abstract satellite map with colorful heat points.",
+      "imageUrl": "https://images.unsplash.com/photo-1620063368269-7b6d40bc9374?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2F0ZWxsaXRlJTIwbWFwJTIwaGVhdG1hcHxlbnwwfHx8fDE3NjM0NzEzNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "satellite map heatmap"
+    },
+    {
+      "id": "dark-map-preview",
+      "description": "A static preview of a map with a dark theme.",
+      "imageUrl": "https://images.unsplash.com/photo-1612180768390-46457708e4de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkYXJrJTIwbWFwfGVufDB8fHx8MTc2MzM4MTMxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dark map"
+    }
+  ]
 }

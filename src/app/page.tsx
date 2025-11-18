@@ -1,3 +1,15 @@
+import { Features } from "@/components/landing/features";
+import { Hero } from "@/components/landing/hero";
+import { LiveStats } from "@/components/landing/live-stats";
+import { MapPreview } from "@/components/landing/map-preview";
+
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <Hero />
+      <LiveStats />
+      <Features />
+      <MapPreview />
+    </>
+  );
 }

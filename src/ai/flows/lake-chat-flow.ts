@@ -3,21 +3,19 @@
  * @fileOverview A conversational AI flow for answering questions about Lake Titicaca.
  *
  * - getLakeTiticacaInfo - A function that provides expert answers on the lake's environmental status.
- * - LakeChatInput - The input type for the getLakeTiticacaInfo function.
- * - LakeChatOutput - The return type for the getLakeTiticacaInfo function.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 
-export const LakeChatInputSchema = z.object({
+const LakeChatInputSchema = z.object({
   question: z
     .string()
     .describe('The user\'s question about Lake Titicaca.'),
 });
-export type LakeChatInput = z.infer<typeof LakeChatInputSchema>;
+type LakeChatInput = z.infer<typeof LakeChatInputSchema>;
 
-export const LakeChatOutputSchema = z.object({
+const LakeChatOutputSchema = z.object({
   answer: z
     .string()
     .describe(
@@ -27,7 +25,7 @@ export const LakeChatOutputSchema = z.object({
     .array(z.string().url())
     .describe('A list of URLs for the scientific papers or articles used as sources.'),
 });
-export type LakeChatOutput = z.infer<typeof LakeChatOutputSchema>;
+type LakeChatOutput = z.infer<typeof LakeChatOutputSchema>;
 
 const lakeTiticacaExpertPrompt = ai.definePrompt({
   name: 'lakeTiticacaExpertPrompt',

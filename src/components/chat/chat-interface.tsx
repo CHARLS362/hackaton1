@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { z } from 'zod';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,10 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import {
-  getLakeTiticacaInfo,
-  LakeChatOutput,
-} from '@/ai/flows/lake-chat-flow';
+import { getLakeTiticacaInfo } from '@/ai/flows/lake-chat-flow';
 import { Loader2, Search, Sparkles, Droplet, Fish, Leaf, Zap } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
 
@@ -39,6 +37,20 @@ const suggestedQuestions = [
     color: 'bg-yellow-100 text-yellow-600',
   },
 ];
+
+// Define the schema and types here, in the client component.
+const LakeChatOutputSchema = z.object({
+  answer: z
+    .string()
+    .describe(
+      'A detailed and informative answer to the user\'s question.'
+    ),
+  sources: z
+    .array(z.string().url())
+    .describe('A list of URLs for the scientific papers or articles used as sources.'),
+});
+type LakeChatOutput = z.infer<typeof LakeChatOutputSchema>;
+
 
 export function ChatInterface() {
   const [query, setQuery] = useState('');

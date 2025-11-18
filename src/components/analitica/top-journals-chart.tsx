@@ -1,6 +1,6 @@
 "use client"
 
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts"
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts"
 import {
   Card,
   CardContent,
@@ -30,28 +30,6 @@ const CustomTooltip = ({ active, payload }: any) => {
     return null;
 };
 
-const renderLegend = (props: any) => {
-  const { payload } = props;
-  
-  if (!payload) {
-    return null;
-  }
-
-  return (
-    <ul className="space-y-2 text-sm text-slate-300">
-      {
-        payload.map((entry: any, index: number) => (
-          <li key={`item-${index}`} className="flex items-center gap-2">
-            <span className="w-3 h-3" style={{backgroundColor: entry.color}}></span>
-            {entry.value}
-          </li>
-        ))
-      }
-    </ul>
-  );
-}
-
-
 export function TopJournalsChart() {
   return (
     <Card className="bg-slate-900 border-slate-700 text-white">
@@ -62,8 +40,7 @@ export function TopJournalsChart() {
         </div>
       </CardHeader>
       <CardContent>
-         <div className="h-[300px] grid grid-cols-2 items-center gap-4">
-            <Legend content={renderLegend} layout="vertical" verticalAlign="middle" align="left" />
+         <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                     <Pie
@@ -71,8 +48,8 @@ export function TopJournalsChart() {
                         cx="50%"
                         cy="50%"
                         labelLine={false}
-                        outerRadius={100}
-                        innerRadius={60}
+                        outerRadius={120}
+                        innerRadius={80}
                         fill="#8884d8"
                         dataKey="value"
                         stroke="hsl(var(--slate-900))"

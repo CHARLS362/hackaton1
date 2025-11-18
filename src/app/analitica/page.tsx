@@ -1,19 +1,15 @@
 import { StatCard } from '@/components/analitica/stat-card';
 import {
-  PublicationsChart,
-} from '@/components/analitica/publications-chart';
-import { TopAuthorsChart } from '@/components/analitica/top-authors-chart';
-import {
-  TopInstitutionsChart,
-} from '@/components/analitica/top-institutions-chart';
-import { TopJournalsChart } from '@/components/analitica/top-journals-chart';
-import {
   Book,
   Users,
   FileText,
   Building,
   BarChart,
 } from 'lucide-react';
+import { TopJournalsChart } from '@/components/analitica/top-journals-chart';
+import { TopInstitutionsChart } from '@/components/analitica/top-institutions-chart';
+import { MethodologiesChart } from '@/components/analitica/methodologies-chart';
+import { KeywordsCloud } from '@/components/analitica/keywords-cloud';
 
 export default function AnaliticaPage() {
   return (
@@ -59,14 +55,11 @@ export default function AnaliticaPage() {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <PublicationsChart />
-          <TopAuthorsChart />
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <TopJournalsChart />
-          <TopInstitutionsChart />
+            <TopJournalsChart />
+            <TopInstitutionsChart />
+            <MethodologiesChart />
+            <KeywordsCloud />
         </div>
       </div>
     </div>

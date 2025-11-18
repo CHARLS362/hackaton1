@@ -15,7 +15,7 @@ export function ArticleCard({ article, layout }: ArticleCardProps) {
 
   return (
     <Card className={cn(
-      "bg-slate-800 border-slate-700 text-white h-full flex flex-col group hover:border-primary transition-all",
+      "bg-white border-slate-200 text-slate-800 h-full flex flex-col group hover:border-primary transition-all shadow-sm hover:shadow-lg",
       layout === 'list' ? 'flex-row' : ''
     )}>
       <div className={cn("flex flex-col flex-grow", layout === 'list' ? 'p-6' : '')}>
@@ -30,7 +30,7 @@ export function ArticleCard({ article, layout }: ArticleCardProps) {
               <ExternalLink className="w-5 h-5" />
             </a>
           </div>
-          <CardDescription className="text-slate-400 text-xs pt-2">
+          <CardDescription className="text-slate-500 text-xs pt-2">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <div className="flex items-center gap-1.5">
                 <Users className="w-3 h-3" />
@@ -45,17 +45,17 @@ export function ArticleCard({ article, layout }: ArticleCardProps) {
           </CardDescription>
         </CardHeader>
         <CardContent className={cn("flex-grow flex flex-col", layout === 'list' ? 'p-0 mt-4' : '')}>
-          <p className="text-slate-300 text-sm mb-4 flex-grow">
+          <p className="text-slate-600 text-sm mb-4 flex-grow">
             {article.summary}
           </p>
           <div className="flex flex-wrap gap-2">
             {article.tags.slice(0, maxTags).map((tag) => (
-              <Badge key={tag} variant="secondary" className="bg-slate-700 text-slate-300 border-transparent">
+              <Badge key={tag} variant="secondary" className="bg-slate-100 text-slate-700 border-slate-200">
                 {tag}
               </Badge>
             ))}
             {remainingTags > 0 && (
-              <Badge variant="secondary" className="bg-slate-700 text-slate-300 border-transparent">
+              <Badge variant="secondary" className="bg-slate-100 text-slate-700 border-slate-200">
                 +{remainingTags}
               </Badge>
             )}
@@ -75,7 +75,7 @@ export function ArticleCard({ article, layout }: ArticleCardProps) {
         </div>
       )}
        {layout === 'list' && (
-         <div className="flex items-center justify-center p-6 border-l border-slate-700">
+         <div className="flex items-center justify-center p-6 border-l border-slate-200">
              <a
                 href={article.url}
                 target="_blank"

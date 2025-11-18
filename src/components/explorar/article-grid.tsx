@@ -10,9 +10,9 @@ interface ArticleGridProps {
 export function ArticleGrid({ articles, layout }: ArticleGridProps) {
   if (articles.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center text-center py-20 bg-slate-800/50 rounded-lg">
-        <h3 className="text-xl font-semibold">No se encontraron artículos</h3>
-        <p className="text-slate-400 mt-2">
+      <div className="flex flex-col items-center justify-center text-center py-20 bg-slate-50 rounded-lg border border-dashed">
+        <h3 className="text-xl font-semibold text-slate-700">No se encontraron artículos</h3>
+        <p className="text-slate-500 mt-2">
           Intenta ajustar tus filtros o términos de búsqueda.
         </p>
       </div>

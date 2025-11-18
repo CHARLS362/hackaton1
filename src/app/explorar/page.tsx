@@ -35,13 +35,13 @@ export default function ExplorarPage() {
   };
 
   return (
-    <div className="bg-slate-900 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline text-slate-800">
             Explorador de Artículos
           </h1>
-          <p className="mt-3 text-lg text-slate-400">
+          <p className="mt-3 text-lg text-slate-600">
             Descubre y explora artículos de investigación científica sobre el
             Lago Titicaca.
           </p>
@@ -63,30 +63,30 @@ export default function ExplorarPage() {
                 <Input
                   type="text"
                   placeholder="Búsqueda por título, resumen o palabras clave..."
-                  className="w-full bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 h-12 pl-4 pr-24 rounded-lg"
+                  className="w-full bg-white border-slate-300 text-slate-900 placeholder:text-slate-500 h-12 pl-4 pr-24 rounded-lg"
                   value={searchTerm}
                   onChange={(e) => handleSearch(e.target.value)}
                 />
                 <div className="absolute inset-y-0 right-2 flex items-center gap-2">
                   <ToggleGroup type="single" value={layout} onValueChange={(value) => value && setLayout(value)} aria-label="Layout">
-                    <ToggleGroupItem value="grid" aria-label="Grid view" className="data-[state=on]:bg-blue-500 data-[state=on]:text-white">
+                    <ToggleGroupItem value="grid" aria-label="Grid view" className="data-[state=on]:bg-primary data-[state=on]:text-white">
                       <LayoutGrid className="h-5 w-5" />
                     </ToggleGroupItem>
-                    <ToggleGroupItem value="list" aria-label="List view" className="data-[state=on]:bg-blue-500 data-[state=on]:text-white">
+                    <ToggleGroupItem value="list" aria-label="List view" className="data-[state=on]:bg-primary data-[state=on]:text-white">
                       <List className="h-5 w-5" />
                     </ToggleGroupItem>
                   </ToggleGroup>
                 </div>
               </div>
               <div className="flex justify-between items-center mt-4 text-sm">
-                <p className="text-slate-400">
+                <p className="text-slate-500">
                   Se encontraron{' '}
-                  <span className="font-bold text-blue-400">
+                  <span className="font-bold text-primary">
                     {filteredArticles.length}
                   </span>{' '}
                   documentos.
                 </p>
-                <Button variant="link" className="text-blue-400 p-0 h-auto" onClick={clearSearch}>
+                <Button variant="link" className="text-primary p-0 h-auto" onClick={clearSearch}>
                   Borrar todo
                 </Button>
               </div>

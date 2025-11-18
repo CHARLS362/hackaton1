@@ -82,13 +82,13 @@ export function FiltersPanel({
 
 
   return (
-    <Card className="bg-slate-800 border-slate-700 text-white sticky top-24">
+    <Card className="bg-slate-50 border-slate-200 text-slate-900 sticky top-24">
       <CardHeader className="flex flex-row items-center justify-between">
         <div className="flex items-center gap-2">
-          <Filter className="w-5 h-5" />
-          <CardTitle className="text-xl">Filtros</CardTitle>
+          <Filter className="w-5 h-5 text-slate-600" />
+          <CardTitle className="text-xl text-slate-800">Filtros</CardTitle>
         </div>
-        <div className="text-sm text-blue-400 font-semibold">
+        <div className="text-sm text-primary font-semibold">
           {filteredCount} / {originalCount}
         </div>
       </CardHeader>
@@ -98,16 +98,16 @@ export function FiltersPanel({
           <Input
             type="text"
             placeholder="Buscar en el título, resumen..."
-            className="w-full bg-slate-700 border-slate-600 text-white placeholder:text-slate-500 pl-9"
+            className="w-full bg-white border-slate-300 text-slate-900 placeholder:text-slate-500 pl-9"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
         <div>
-          <label className="text-sm font-medium text-slate-300">
+          <label className="text-sm font-medium text-slate-700">
             Rango de años:{" "}
-            <span className="font-bold text-blue-400">
+            <span className="font-bold text-primary">
               {yearRange[0]} - {yearRange[1]}
             </span>
           </label>
@@ -123,12 +123,12 @@ export function FiltersPanel({
 
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1" className="border-b-0">
-            <AccordionTrigger className="bg-slate-700/50 hover:bg-slate-700 px-4 rounded-lg text-sm font-semibold">
+            <AccordionTrigger className="bg-slate-200/50 hover:bg-slate-200 px-4 rounded-lg text-sm font-semibold">
               Filtros Avanzados
             </AccordionTrigger>
             <AccordionContent className="pt-4 px-2 space-y-4">
                <div>
-                <h4 className="font-semibold mb-2 text-slate-300">Revista</h4>
+                <h4 className="font-semibold mb-2 text-slate-700">Revista</h4>
                 <div className="space-y-2">
                   {allJournals.map(journal => (
                     <div key={journal} className="flex items-center space-x-2">
@@ -136,9 +136,9 @@ export function FiltersPanel({
                         id={journal} 
                         checked={selectedJournals.includes(journal)}
                         onCheckedChange={() => handleJournalChange(journal)}
-                        className="border-slate-500 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500"
+                        className="border-slate-400 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                       />
-                      <Label htmlFor={journal} className="text-sm text-slate-400 font-normal">
+                      <Label htmlFor={journal} className="text-sm text-slate-600 font-normal">
                         {journal}
                       </Label>
                     </div>

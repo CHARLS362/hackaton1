@@ -1,8 +1,30 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageSquare } from "lucide-react";
-import Link from "next/link";
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { ArrowRight, MessageSquare, PlayCircle } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
+import { textToSpeech } from '@/ai/flows/tts-flow';
+import { AudioPlayer } from './audio-player';
 
 export function Hero() {
+  const [audio, setAudio] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handlePlayWelcome = async () => {
+    setIsLoading(true);
+    try {
+      const welcomeText = 'Bienvenido a SIGA Titicaca. Nuestra plataforma integral para el monitoreo, análisis y acción ambiental del Lago Titicaca.';
+      const response = await textToSpeech(welcomeText);
+      if (response?.media) {
+        setAudio(response.media);
+      }
+    } catch (error) {
+      console.error('Error generating speech:', error);
+    }
+    setIsLoading(false);
+  };
+
   return (
     <section className="relative h-[90vh] min-h-[700px] max-h-[1080px] w-full flex items-center justify-center text-center text-white overflow-hidden">
       <video
@@ -28,7 +50,7 @@ export function Hero() {
           Descubra, analice y conecte la investigación científica del lago
           con la tecnología de IA avanzada.
         </p>
-        <div className="mt-10 animate-fade-in-up animation-delay-400">
+        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animation-delay-400">
           <Button
             size="lg"
             className="group rounded-full text-lg px-8 py-6 bg-blue-500 hover:bg-blue-600 text-white shadow-lg shadow-blue-500/30"
@@ -40,8 +62,19 @@ export function Hero() {
               <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="group rounded-full text-lg px-8 py-6 border-slate-500 text-slate-300 hover:bg-slate-700 hover:text-white transition-all"
+            onClick={handlePlayWelcome}
+            disabled={isLoading}
+          >
+            <PlayCircle className="mr-3 h-6 w-6" />
+            {isLoading ? 'Generando...' : 'Escuchar Bienvenida'}
+          </Button>
         </div>
       </div>
+      {audio && <AudioPlayer src={audio} />}
     </section>
   );
 }

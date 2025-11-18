@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -207,12 +208,14 @@ export function CitizenReportForm() {
                 adjuntará automáticamente.
               </CardDescription>
               <div className="relative aspect-video bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden">
-                <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                {!formData.photo && (
+                  <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                )}
                 <canvas ref={canvasRef} className="hidden" />
                 {formData.photo && (
                   <Image src={formData.photo} alt="Vista previa de la foto" fill className="object-cover" />
                 )}
-                {!hasCameraPermission && (
+                {!hasCameraPermission && !formData.photo && (
                   <Alert variant="destructive" className="m-4">
                     <AlertTriangle className="h-4 w-4" />
                     <AlertTitle>Se requiere acceso a la cámara</AlertTitle>

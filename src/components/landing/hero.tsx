@@ -3,34 +3,11 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { textToSpeech } from '@/ai/flows/tts-flow';
-import { AudioPlayer } from './audio-player';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 
 export function Hero() {
-  const [audio, setAudio] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
-
-  useEffect(() => {
-    const handlePlayWelcome = async () => {
-      setIsLoading(true);
-      try {
-        const welcomeText = 'Bienvenido a SIGA Titicaca. Nuestra plataforma integral para el monitoreo, análisis y acción ambiental del Lago Titicaca.';
-        const response = await textToSpeech(welcomeText);
-        if (response?.media) {
-          setAudio(response.media);
-        }
-      } catch (error) {
-        console.error('Error generating speech:', error);
-      }
-      setIsLoading(false);
-    };
-
-    handlePlayWelcome();
-  }, []);
 
   return (
     <section className="relative h-[90vh] min-h-[700px] max-h-[1080px] w-full flex items-center justify-center text-center text-white overflow-hidden">
@@ -70,7 +47,6 @@ export function Hero() {
           </Button>
         </div>
       </div>
-      {audio && <AudioPlayer src={audio} />}
     </section>
   );
 }

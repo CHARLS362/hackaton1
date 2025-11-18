@@ -14,7 +14,6 @@ import {
 import { getLakeTiticacaInfo } from '@/ai/flows/lake-chat-flow';
 import { Loader2, Search, Sparkles, Droplet, Fish, Leaf, Zap } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
-import Orb from './Orb';
 
 const suggestedQuestions = [
   {
@@ -86,15 +85,7 @@ export function ChatInterface() {
   };
   
   return (
-    <div className="relative min-h-screen">
-      <div className="absolute inset-0 -z-10">
-        <Orb
-          hoverIntensity={0.5}
-          rotateOnHover={true}
-          hue={200}
-          forceHoverState={false}
-        />
-      </div>
+    <div className="bg-slate-950 min-h-screen">
       <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl relative z-10">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold font-headline text-white">

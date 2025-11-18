@@ -2,7 +2,7 @@
 import { Features } from "@/components/landing/features";
 import { Hero } from "@/components/landing/hero";
 import { LiveStats } from "@/components/landing/live-stats";
-import { DataMap } from "@/components/landing/data-map";
+import { DataMapLoader } from "@/components/landing/data-map-loader";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <LiveStats />
       <Features />
-      <DataMap />
+      <DataMapLoader />
     </>
   );
 }

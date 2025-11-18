@@ -1,9 +1,10 @@
 import { TrendAnalysisCard } from "@/components/app/trend-analysis-card";
 import { ProjectsDataTable } from "@/components/app/projects-data-table";
+import { AlertsPanel } from "@/components/app/alerts-panel";
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-8">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-8">
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard Principal</h1>
         <p className="text-muted-foreground">
@@ -16,7 +17,7 @@ export default function DashboardPage() {
           <TrendAnalysisCard />
         </div>
         <div className="lg:col-span-3">
-          {/* Another card could go here */}
+          <AlertsPanel />
         </div>
       </div>
       <div>

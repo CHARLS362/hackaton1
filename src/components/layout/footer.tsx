@@ -2,6 +2,7 @@ import { Logo } from "./logo";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -33,9 +34,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#data" className="hover:text-white transition-colors">
-                  Data
-                </a>
+                <Link href="/report" className="hover:text-white transition-colors">
+                  Reportar
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">

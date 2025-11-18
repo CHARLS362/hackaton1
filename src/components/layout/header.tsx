@@ -10,7 +10,7 @@ import { useState } from "react";
 const navLinks = [
   { href: "/#modules", label: "Módulos" },
   { href: "/#map", label: "Mapa" },
-  { href: "/#data", label: "Data" },
+  { href: "/report", label: "Reportar" },
 ];
 
 export function Header() {

@@ -29,10 +29,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased bg-background text-foreground">
-        <Header />
-        <main className="pt-16">{children}</main>
-        <Footer />
+      <body className="font-body antialiased bg-slate-50 dark:bg-slate-950 text-foreground">
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow pt-16">{children}</main>
+          <Footer />
+        </div>
         <Toaster />
       </body>
     </html>

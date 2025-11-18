@@ -55,8 +55,9 @@ export function Hero() {
             size="lg"
             variant="outline"
             className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+            asChild
           >
-            Reportar Incidente
+            <Link href="/report">Reportar Incidente</Link>
           </Button>
         </div>
       </div>

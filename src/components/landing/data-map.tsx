@@ -1,6 +1,5 @@
 "use client";
 import { Map, GeoJson } from "pigeon-maps";
-import { hsl } from "pigeon-maps/color";
 import cuencaData from "@/data/cuenca.json";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
@@ -9,8 +8,8 @@ import { Compass } from "lucide-react";
 
 export function DataMap() {
   const geoJsonStyle = {
-    fill: hsl(224.3, 76.3, 48, 0.5),
-    stroke: hsl(210, 40, 98),
+    fill: "hsla(224.3, 76.3%, 48%, 0.5)",
+    stroke: "hsla(210, 40%, 98%, 1)",
     strokeWidth: 2,
   };
 

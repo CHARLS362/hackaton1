@@ -17,7 +17,7 @@ export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/30 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Logo />
 
@@ -26,7 +26,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary relative group"
+              className="text-sm font-medium text-slate-300 transition-colors hover:text-white relative group"
             >
               {link.label}
               <span className="absolute bottom-[-2px] left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-300"></span>
@@ -35,7 +35,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <Button asChild className="shadow-lg shadow-primary/20">
+          <Button asChild variant="outline" className="rounded-full border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition-all">
             <Link href="/dashboard">Acceso al Sistema</Link>
           </Button>
         </div>
@@ -64,7 +64,7 @@ export function Header() {
                   ))}
                 </div>
                 <div className="mt-8 flex flex-col gap-4">
-                  <Button asChild className="shadow-lg shadow-primary/20">
+                  <Button asChild>
                     <Link href="/dashboard">Acceso al Sistema</Link>
                   </Button>
                 </div>

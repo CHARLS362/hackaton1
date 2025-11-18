@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A flow to convert text to speech using Google's TTS model.
@@ -51,7 +52,7 @@ const textToSpeechFlow = ai.defineFlow(
         responseModalities: ['AUDIO'],
         speechConfig: {
           voiceConfig: {
-            prebuiltVoiceConfig: { voiceName: 'vindemiatrix' },
+            prebuiltVoiceConfig: { voiceName: 'male-1' },
           },
         },
       },

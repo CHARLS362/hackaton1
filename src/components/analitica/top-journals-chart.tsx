@@ -1,6 +1,6 @@
 "use client"
 
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts"
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts"
 import {
   Card,
   CardContent,
@@ -30,6 +30,49 @@ const CustomTooltip = ({ active, payload }: any) => {
     return null;
 };
 
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }: any) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + (outerRadius + 30) * Math.cos(-midAngle * RADIAN);
+  const y = cy + (outerRadius + 30) * Math.sin(-midAngle * RADIAN);
+  const sin = Math.sin(-RADIAN * midAngle);
+  const cos = Math.cos(-RADIAN * midAngle);
+  const sx = cx + (outerRadius + 10) * cos;
+  const sy = cy + (outerRadius + 10) * sin;
+  const mx = cx + (outerRadius + 30) * cos;
+  const my = cy + (outerRadius + 30) * sin;
+  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+  const ey = my;
+  const textAnchor = cos >= 0 ? 'start' : 'end';
+
+  return (
+    <g>
+      <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={COLORS[index % COLORS.length]} fill="none" />
+      <circle cx={ex} cy={ey} r={2} fill={COLORS[index % COLORS.length]} stroke="none" />
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#94a3b8" fontSize={12}>
+        {`${name} (${(percent * 100).toFixed(2)}%)`}
+      </text>
+    </g>
+  );
+};
+
+const CustomizedLegend = (props: any) => {
+  const { cx, cy } = props;
+  const total = data.reduce((acc, entry) => acc + entry.value, 0);
+
+  return (
+    <>
+      <text x={cx} y={cy - 10} textAnchor="middle" dominantBaseline="central" fill="#fff" fontSize="16" fontWeight="bold">
+        Top 5
+      </text>
+      <text x={cx} y={cy + 15} textAnchor="middle" dominantBaseline="central" fill="#A7F3D0" fontSize="24" fontWeight="bold">
+        {Math.round(total)}
+      </text>
+    </>
+  );
+}
+
+
 export function TopJournalsChart() {
   return (
     <Card className="bg-slate-900 border-slate-700 text-white">
@@ -48,8 +91,9 @@ export function TopJournalsChart() {
                         cx="50%"
                         cy="50%"
                         labelLine={false}
-                        outerRadius={120}
-                        innerRadius={80}
+                        label={renderCustomizedLabel}
+                        outerRadius={100}
+                        innerRadius={70}
                         fill="#8884d8"
                         dataKey="value"
                         stroke="hsl(var(--slate-900))"
@@ -58,6 +102,7 @@ export function TopJournalsChart() {
                         {data.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
+                         <Legend content={<CustomizedLegend />} verticalAlign="middle" />
                     </Pie>
                     <Tooltip content={<CustomTooltip />} />
                 </PieChart>

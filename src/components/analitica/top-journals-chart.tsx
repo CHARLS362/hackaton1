@@ -32,6 +32,11 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 const renderLegend = (props: any) => {
   const { payload } = props;
+  
+  if (!payload) {
+    return null;
+  }
+
   return (
     <ul className="space-y-2 text-sm text-slate-300">
       {

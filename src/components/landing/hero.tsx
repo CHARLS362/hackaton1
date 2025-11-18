@@ -6,10 +6,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { textToSpeech } from '@/ai/flows/tts-flow';
 import { AudioPlayer } from './audio-player';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Image from 'next/image';
 
 export function Hero() {
   const [audio, setAudio] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
 
   const handlePlayWelcome = async () => {
     setIsLoading(true);
@@ -27,26 +30,26 @@ export function Hero() {
 
   return (
     <section className="relative h-[90vh] min-h-[700px] max-h-[1080px] w-full flex items-center justify-center text-center text-white overflow-hidden">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-      >
-        <source src="/videos/hero-background-light.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-white/40" />
+      {heroImage && (
+        <Image
+          src={heroImage.imageUrl}
+          alt={heroImage.description}
+          fill
+          className="object-cover object-center"
+          data-ai-hint={heroImage.imageHint}
+          priority
+        />
+      )}
+      <div className="absolute inset-0 bg-blue-900/40" />
       <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col items-center">
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tight animate-fade-in-up font-headline text-slate-800">
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tight animate-fade-in-up font-headline text-white">
           Protegiendo el
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-300">
             corazón de los Andes
           </span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-slate-600 animate-fade-in-up animation-delay-200">
+        <p className="mt-6 max-w-2xl text-lg text-slate-100 animate-fade-in-up animation-delay-200">
           Una plataforma inteligente para el monitoreo y la preservación del Lago Titicaca, uniendo tecnología y comunidad.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animation-delay-400">
@@ -64,7 +67,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="outline"
-            className="group rounded-full text-lg px-8 py-6 border-slate-400 text-slate-600 hover:bg-slate-100 hover:text-slate-800 transition-all"
+            className="group rounded-full text-lg px-8 py-6 border-slate-200 text-white hover:bg-white/20 hover:text-white transition-all"
             onClick={handlePlayWelcome}
             disabled={isLoading}
           >

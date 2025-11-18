@@ -63,6 +63,7 @@ export function TopJournalsChart() {
       </CardHeader>
       <CardContent>
          <div className="h-[300px] grid grid-cols-2 items-center gap-4">
+            <Legend content={renderLegend} layout="vertical" verticalAlign="middle" align="left" />
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                     <Pie
@@ -74,7 +75,7 @@ export function TopJournalsChart() {
                         innerRadius={60}
                         fill="#8884d8"
                         dataKey="value"
-                        stroke="hsl(var(--background))"
+                        stroke="hsl(var(--slate-900))"
                         strokeWidth={4}
                     >
                         {data.map((entry, index) => (
@@ -84,7 +85,6 @@ export function TopJournalsChart() {
                     <Tooltip content={<CustomTooltip />} />
                 </PieChart>
             </ResponsiveContainer>
-            <Legend content={renderLegend} layout="vertical" verticalAlign="middle" align="right" />
          </div>
       </CardContent>
     </Card>

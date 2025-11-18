@@ -12,7 +12,6 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -33,11 +32,11 @@ const chartData = [
 
 export function PublicationsChart() {
   return (
-    <Card className="bg-slate-50/50 border-slate-200">
+    <Card className="bg-slate-900 border-slate-700 text-white">
       <CardHeader>
         <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-primary" />
-            <CardTitle className="text-slate-800">Publicaciones a lo largo del tiempo</CardTitle>
+            <CardTitle className="text-slate-200">Publicaciones a lo largo del tiempo</CardTitle>
         </div>
       </CardHeader>
       <CardContent>
@@ -50,15 +49,16 @@ export function PublicationsChart() {
                         <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
                     </linearGradient>
                 </defs>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.2)" />
               <XAxis dataKey="year" tickLine={false} axisLine={false} tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }} />
               <YAxis tickLine={false} axisLine={false} tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }} />
               <Tooltip
                 cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 1, strokeDasharray: '3 3' }}
                 contentStyle={{
-                  backgroundColor: "hsl(var(--background))",
-                  borderColor: "hsl(var(--border))",
+                  backgroundColor: "hsl(var(--slate-900))",
+                  borderColor: "hsl(var(--slate-700))",
                   borderRadius: 'var(--radius)',
+                  color: 'hsl(var(--foreground))',
                   boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                 }}
               />

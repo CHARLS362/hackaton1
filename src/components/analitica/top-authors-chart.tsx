@@ -27,9 +27,9 @@ const PURPLE_COLORS = ["#c084fc", "#a855f7", "#9333ea", "#7e22ce", "#6b21a8", "#
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-2 border border-slate-200 rounded-lg shadow-lg">
-          <p className="font-bold text-slate-700">{`${label}`}</p>
-          <p className="text-sm text-purple-600">{`Publicaciones: ${payload[0].value}`}</p>
+        <div className="bg-slate-800 p-2 border border-slate-700 rounded-lg shadow-lg">
+          <p className="font-bold text-white">{`${label}`}</p>
+          <p className="text-sm text-purple-400">{`Publicaciones: ${payload[0].value}`}</p>
         </div>
       );
     }
@@ -38,11 +38,11 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function TopAuthorsChart() {
   return (
-    <Card className="bg-slate-50/50 border-slate-200">
+    <Card className="bg-slate-900 border-slate-700 text-white">
       <CardHeader>
         <div className="flex items-center gap-2">
-          <Users className="w-5 h-5 text-purple-600" />
-          <CardTitle className="text-slate-800">Autores más destacados</CardTitle>
+          <Users className="w-5 h-5 text-purple-400" />
+          <CardTitle className="text-slate-200">Autores más destacados</CardTitle>
         </div>
       </CardHeader>
       <CardContent>
@@ -57,13 +57,13 @@ export function TopAuthorsChart() {
               <YAxis
                 type="category"
                 dataKey="name"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="#94a3b8"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
                 width={120}
               />
-              <Tooltip cursor={{ fill: 'hsl(var(--accent))' }} content={<CustomTooltip />} />
+              <Tooltip cursor={{ fill: 'rgba(255,255,255,0.05)' }} content={<CustomTooltip />} />
               <Bar dataKey="publications" radius={[0, 4, 4, 0]}>
                 {authorData.map((entry, index) => {
                   const colorIndex = Math.floor((index / authorData.length) * PURPLE_COLORS.length);

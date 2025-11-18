@@ -66,8 +66,12 @@ export function TopInstitutionsChart() {
 }
 
 const CustomizedContent = (props: any) => {
-    const { root, depth, x, y, width, height, index, payload, rank, name } = props;
+    const { root, depth, x, y, width, height, index, name, fill } = props;
   
+    if (width < 1 || height < 1) {
+        return null;
+    }
+
     return (
       <g>
         <rect
@@ -76,7 +80,7 @@ const CustomizedContent = (props: any) => {
           width={width}
           height={height}
           style={{
-            fill: payload.fill,
+            fill: fill,
             stroke: '#1e293b',
             strokeWidth: 2,
             

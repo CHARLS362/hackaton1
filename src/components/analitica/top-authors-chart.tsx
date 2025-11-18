@@ -22,11 +22,6 @@ const authorData = [
   { name: "Michael J. Pecaut", publications: 21 },
 ].reverse();
 
-const COLORS = [
-  "#8884d8", "#83a6ed", "#8dd1e1", "#82ca9d", "#a4de6c", 
-  "#d0ed57", "#ffc658", "#ff9a3e", "#ff7300", "#bf5f00"
-].reverse();
-
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (

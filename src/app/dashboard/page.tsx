@@ -1,14 +1,10 @@
 import { TrendAnalysisCard } from "@/components/app/trend-analysis-card";
 import { ProjectsDataTable } from "@/components/app/projects-data-table";
 import { AlertsPanel } from "@/components/app/alerts-panel";
-import { AudioPlayer } from "@/components/layout/audio-player";
 
 export default function DashboardPage() {
-  const pageDescription =
-    "Bienvenido al Dashboard Principal. Aquí tienes una vista general del estado del sistema, incluyendo la calidad del agua, alertas recientes y el progreso de los proyectos de conservación.";
   return (
     <div className="p-4 sm:p-6 lg:p-8 space-y-8">
-      <AudioPlayer text={pageDescription} />
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard Principal</h1>
         <p className="text-muted-foreground">

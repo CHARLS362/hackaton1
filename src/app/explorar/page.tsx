@@ -8,14 +8,11 @@ import { Input } from '@/components/ui/input';
 import { LayoutGrid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { AudioPlayer } from '@/components/layout/audio-player';
 
 export default function ExplorarPage() {
   const [filteredArticles, setFilteredArticles] = useState<Article[]>(articles);
   const [searchTerm, setSearchTerm] = useState('');
   const [layout, setLayout] = useState('grid');
-  const pageDescription =
-    'Bienvenido al Explorador de Artículos. Utiliza los filtros para buscar en la base de datos de investigación científica y descubrir nuevos conocimientos sobre el Lago Titicaca.';
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);
@@ -39,7 +36,6 @@ export default function ExplorarPage() {
 
   return (
     <div className="bg-white min-h-screen text-slate-900">
-      <AudioPlayer text={pageDescription} />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold font-headline text-slate-800">

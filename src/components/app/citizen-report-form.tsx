@@ -208,9 +208,7 @@ export function CitizenReportForm() {
                 adjuntará automáticamente.
               </CardDescription>
               <div className="relative aspect-video bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden">
-                {!formData.photo && (
-                  <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
-                )}
+                <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
                 <canvas ref={canvasRef} className="hidden" />
                 {formData.photo && (
                   <Image src={formData.photo} alt="Vista previa de la foto" fill className="object-cover" />

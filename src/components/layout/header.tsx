@@ -35,7 +35,9 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <Button variant="ghost">Iniciar Sesión</Button>
+          <Button variant="ghost" asChild>
+            <Link href="/login">Iniciar Sesión</Link>
+          </Button>
           <Button asChild className="shadow-lg shadow-primary/20">
             <Link href="/dashboard">Acceso al Sistema</Link>
           </Button>
@@ -65,7 +67,9 @@ export function Header() {
                   ))}
                 </div>
                 <div className="mt-8 flex flex-col gap-4">
-                  <Button variant="ghost">Iniciar Sesión</Button>
+                  <Button variant="ghost" asChild>
+                     <Link href="/login">Iniciar Sesión</Link>
+                  </Button>
                   <Button asChild className="shadow-lg shadow-primary/20">
                     <Link href="/dashboard">Acceso al Sistema</Link>
                   </Button>

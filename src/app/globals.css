@@ -58,6 +58,12 @@
   }
 }
 
+@layer utilities {
+  nextjs-portal {
+    display: none !important;
+  }
+}
+
 @keyframes fade-in-up {
   from {
     opacity: 0;

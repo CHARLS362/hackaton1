@@ -1,8 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
-const DataMap = dynamic(
+const DataMapWithNoSSR = dynamic(
   () => import("@/components/landing/data-map").then((mod) => mod.DataMap),
   {
     ssr: false,
@@ -23,5 +24,11 @@ const DataMap = dynamic(
 );
 
 export function DataMapLoader() {
-  return <DataMap />;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  return <>{isClient && <DataMapWithNoSSR />}</>;
 }

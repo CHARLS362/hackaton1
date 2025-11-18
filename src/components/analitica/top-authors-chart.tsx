@@ -22,12 +22,14 @@ const authorData = [
   { name: "Michael J. Pecaut", publications: 21 },
 ].reverse();
 
+const PURPLE_COLORS = ["#c084fc", "#a855f7", "#9333ea", "#7e22ce", "#6b21a8", "#5b21b6"];
+
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-2 border border-slate-200 rounded-lg shadow-lg">
           <p className="font-bold text-slate-700">{`${label}`}</p>
-          <p className="text-sm text-primary">{`Publicaciones: ${payload[0].value}`}</p>
+          <p className="text-sm text-purple-600">{`Publicaciones: ${payload[0].value}`}</p>
         </div>
       );
     }
@@ -39,7 +41,7 @@ export function TopAuthorsChart() {
     <Card className="bg-slate-50/50 border-slate-200">
       <CardHeader>
         <div className="flex items-center gap-2">
-          <Users className="w-5 h-5 text-primary" />
+          <Users className="w-5 h-5 text-purple-600" />
           <CardTitle className="text-slate-800">Autores más destacados</CardTitle>
         </div>
       </CardHeader>
@@ -63,9 +65,10 @@ export function TopAuthorsChart() {
               />
               <Tooltip cursor={{ fill: 'hsl(var(--accent))' }} content={<CustomTooltip />} />
               <Bar dataKey="publications" radius={[0, 4, 4, 0]}>
-                {authorData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={`hsl(var(--primary), ${1 - (index/authorData.length) * 0.7})`} />
-                ))}
+                {authorData.map((entry, index) => {
+                  const colorIndex = Math.floor((index / authorData.length) * PURPLE_COLORS.length);
+                  return <Cell key={`cell-${index}`} fill={PURPLE_COLORS[colorIndex]} />
+                })}
               </Bar>
             </BarChart>
           </ResponsiveContainer>

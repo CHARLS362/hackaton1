@@ -9,9 +9,12 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/#modules", label: "Módulos" },
-  { href: "/#map", label: "Mapa" },
-  { href: "/report", label: "Reportar" },
+  { href: "/chat", label: "Charlar" },
+  { href: "/explorar", label: "Explorar" },
+  { href: "/analitica", label: "Analítica" },
+  { href: "/mapa", label: "Mapa" },
+  { href: "/mesa", label: "Mesa" },
+  { href: "/graficos", label: "Gráficos" },
 ];
 
 export function Header() {

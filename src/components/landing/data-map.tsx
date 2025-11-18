@@ -1,4 +1,3 @@
-
 "use client";
 import {
   MapContainer,
@@ -47,33 +46,30 @@ export function DataMap() {
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
-          <div className="relative aspect-video rounded-lg overflow-hidden mt-2">
             <MapContainer
               center={[-15.9, -69.4]}
               zoom={8}
-              className={cn("h-full w-full z-0")}
+              className={cn("h-[60vh] w-full z-0 rounded-lg mt-2")}
               scrollWheelZoom={false}
             >
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-all hover:bg-black/10 group z-10 pointer-events-none">
+                <Button
+                  size="lg"
+                  asChild
+                  className="scale-100 group-hover:scale-105 transition-transform pointer-events-auto"
+                >
+                  <Link href="/dashboard">
+                    <Compass className="mr-2 h-5 w-5" />
+                    Explorar Mapa Interactivo
+                  </Link>
+                </Button>
+              </div>
               <TileLayer
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
               />
               <GeoJSON data={cuencaData as any} style={geoJsonStyle} />
             </MapContainer>
-
-            <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-all hover:bg-black/10 group">
-              <Button
-                size="lg"
-                asChild
-                className="scale-100 group-hover:scale-105 transition-transform"
-              >
-                <Link href="/dashboard">
-                  <Compass className="mr-2 h-5 w-5" />
-                  Explorar Mapa Interactivo
-                </Link>
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </section>

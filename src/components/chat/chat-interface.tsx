@@ -85,13 +85,13 @@ export function ChatInterface() {
   };
   
   return (
-    <div className="bg-slate-950 min-h-screen">
+    <div className="bg-white min-h-screen">
       <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl relative z-10">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline text-white">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline text-slate-800">
             ¿Qué quieres saber sobre el Lago Titicaca?
           </h1>
-          <p className="text-slate-300 mt-3 text-lg">
+          <p className="text-slate-500 mt-3 text-lg">
             Pregúntame sobre su ecosistema, contaminación, y esfuerzos de conservación.
           </p>
         </div>
@@ -103,7 +103,7 @@ export function ChatInterface() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Escribe tu pregunta aquí..."
-              className="flex-grow text-base bg-white/10 text-white placeholder:text-slate-400 border-slate-600 focus:ring-blue-400"
+              className="flex-grow text-base"
             />
             <Button type="submit" disabled={loading} className="w-28 bg-blue-500 hover:bg-blue-600 text-white">
               {loading ? (
@@ -119,7 +119,7 @@ export function ChatInterface() {
 
         {!result && !loading && (
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-slate-300">
+            <h3 className="mb-4 text-sm font-semibold text-slate-500">
               Preguntas de investigación sugeridas:
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -127,12 +127,12 @@ export function ChatInterface() {
                 <button
                   key={q.text}
                   onClick={() => handleSuggestedQuestionClick(q.text)}
-                  className="flex items-center gap-4 p-4 text-left bg-white/5 border border-slate-700 rounded-lg hover:bg-white/10 hover:shadow-sm transition-all text-white"
+                  className="flex items-center gap-4 p-4 text-left border bg-slate-50 border-slate-200 rounded-lg hover:bg-slate-100 hover:shadow-sm transition-all text-slate-700"
                 >
                   <div className={`p-2 rounded-lg ${q.color}`}>
                     <q.icon className="w-5 h-5" />
                   </div>
-                  <span className="text-sm">{q.text}</span>
+                  <span className="text-sm font-medium">{q.text}</span>
                 </button>
               ))}
             </div>
@@ -140,35 +140,35 @@ export function ChatInterface() {
         )}
 
         {loading && (
-          <Card className="bg-white/5 border-slate-700 text-white">
+          <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 text-slate-700">
                 <Loader2 className="animate-spin text-primary" />
                 Pensando...
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription>
                 Estoy buscando la información más actualizada sobre tu consulta.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="h-4 bg-slate-700 rounded animate-pulse"></div>
-                <div className="h-4 bg-slate-700 rounded animate-pulse w-5/6"></div>
-                <div className="h-4 bg-slate-700 rounded animate-pulse w-3/4"></div>
+                <div className="h-4 bg-slate-200 rounded animate-pulse"></div>
+                <div className="h-4 bg-slate-200 rounded animate-pulse w-5/6"></div>
+                <div className="h-4 bg-slate-200 rounded animate-pulse w-3/4"></div>
               </div>
             </CardContent>
           </Card>
         )}
 
         {result && (
-          <Alert className='mt-8 animate-fade-in-up bg-white/5 border-slate-700 text-white'>
+          <Alert className='mt-8 animate-fade-in-up bg-blue-50 border-blue-200'>
             <Sparkles className="h-5 w-5 text-primary" />
-            <AlertTitle className="font-bold text-xl mb-2">Respuesta</AlertTitle>
-            <AlertDescription className="prose prose-sm prose-invert max-w-none text-slate-300">
+            <AlertTitle className="font-bold text-xl mb-2 text-slate-800">Respuesta</AlertTitle>
+            <AlertDescription className="prose prose-sm max-w-none text-slate-600">
               <p>{result.answer}</p>
               {result.sources && result.sources.length > 0 && (
                 <div className="mt-4">
-                  <h4 className="font-semibold text-slate-200">Fuentes:</h4>
+                  <h4 className="font-semibold text-slate-700">Fuentes:</h4>
                   <ul className="list-disc pl-5 space-y-1">
                     {result.sources.map((source, index) => (
                       <li key={index}>
@@ -176,7 +176,7 @@ export function ChatInterface() {
                           href={source}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-400 hover:underline"
+                          className="text-blue-500 hover:underline"
                         >
                           {source}
                         </a>

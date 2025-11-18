@@ -1,0 +1,84 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Biorremediación de aguas contaminadas con metales pesados en el Lago Titicaca",
+      "authors": ["García, M.", "Rojas, L."],
+      "year": 2023,
+      "journal": "Revista de Biología Tropical",
+      "summary": "Este estudio explora el uso de microalgas nativas para la absorción de plomo y mercurio en afluentes del lago, demostrando una eficiencia de remoción superior al 85% en condiciones de laboratorio.",
+      "tags": ["biorremediación", "metales pesados", "microalgas", "contaminación del agua"],
+      "url": "#"
+    },
+    {
+      "id": "2",
+      "title": "Impacto de los efluentes urbanos en la eutrofización de la bahía de Puno",
+      "authors": ["Quispe, A.", "Mamani, J."],
+      "year": 2022,
+      "journal": "Water Research",
+      "summary": "Análisis de la carga de nutrientes (nitrógeno y fósforo) proveniente de aguas residuales no tratadas y su correlación con la proliferación de lenteja de agua (Lemna sp.).",
+      "tags": ["eutrofización", "aguas residuales", "nutrientes", "calidad del agua"],
+      "url": "#"
+    },
+    {
+      "id": "3",
+      "title": "Plásticos y microplásticos en sedimentos del Lago Titicaca: una amenaza emergente",
+      "authors": ["Choque, S.", "Flores, E."],
+      "year": 2024,
+      "journal": "Environmental Pollution",
+      "summary": "Cuantificación y caracterización de microplásticos en sedimentos de diferentes zonas del lago, identificando polímeros de alta y baja densidad y su potencial impacto en la biota.",
+      "tags": ["microplásticos", "contaminación", "sedimentos", "polímeros"],
+      "url": "#"
+    },
+    {
+      "id": "4",
+      "title": "Modelado hidrodinámico para la dispersión de contaminantes en el lago menor (Wiñaymarka)",
+      "authors": ["Vargas, R.", "Castillo, P."],
+      "year": 2021,
+      "journal": "Journal of Hydrology",
+      "summary": "Se presenta un modelo 3D para simular la dispersión de contaminantes conservativos y no conservativos desde el río Katari, considerando vientos y corrientes.",
+      "tags": ["modelado", "hidrodinámica", "dispersión de contaminantes", "Wiñaymarka"],
+      "url": "#"
+    },
+    {
+      "id": "5",
+      "title": "Evaluación de la efectividad de los humedales artificiales para el tratamiento de aguas del río Coata",
+      "authors": ["Mendoza, B.", "Alvarez, F."],
+      "year": 2023,
+      "journal": "Science of The Total Environment",
+      "summary": "Estudio piloto sobre la capacidad de los humedales de totora (Schoenoplectus californicus) para reducir la carga orgánica y de patógenos antes de su ingreso al lago.",
+      "tags": ["humedales artificiales", "río Coata", "tratamiento de agua", "totora"],
+      "url": "#"
+    },
+    {
+      "id": "6",
+      "title": "Percepción comunitaria sobre la contaminación y participación en la conservación del Titicaca",
+      "authors": ["Paredes, I.", "Ticona, G."],
+      "year": 2020,
+      "journal": "PLoS ONE",
+      "summary": "Análisis sociológico basado en encuestas y entrevistas en comunidades ribereñas para evaluar el nivel de conciencia ambiental y la disposición a participar en proyectos de conservación.",
+      "tags": ["sociología", "comunidad", "conservación", "participación ciudadana"],
+      "url": "#"
+    },
+    {
+      "id": "7",
+      "title": "Monitoreo de la calidad del agua utilizando sensores remotos y datos satelitales (Sentinel-2)",
+      "authors": ["Ríos, D.", "Vega, S."],
+      "year": 2024,
+      "journal": "Water Research",
+      "summary": "Desarrollo de algoritmos para estimar la concentración de clorofila-a y sólidos suspendidos totales a partir de imágenes satelitales, permitiendo un monitoreo a gran escala.",
+      "tags": ["sensores remotos", "satélite", "calidad del agua", "clorofila-a"],
+      "url": "#"
+    },
+    {
+      "id": "8",
+      "title": "Acumulación de mercurio en especies de peces de importancia comercial en el Lago Titicaca",
+      "authors": ["Gomez, H.", "Limachi, R."],
+      "year": 2022,
+      "journal": "Environmental Pollution",
+      "summary": "Análisis de la concentración de mercurio en tejido muscular de Orestias agassizii (carachi) y Oncorhynchus mykiss (trucha), evaluando el riesgo para el consumo humano.",
+      "tags": ["mercurio", "peces", "bioacumulación", "seguridad alimentaria"],
+      "url": "#"
+    }
+  ]
+}

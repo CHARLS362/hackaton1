@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import {
   Card,
   CardContent,
@@ -9,7 +10,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
   Select,
@@ -40,7 +40,12 @@ const steps = [
 
 export function CitizenReportForm() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    incidentType: string;
+    description: string;
+    location: any;
+    photo: string | null;
+  }>({
     incidentType: '',
     description: '',
     location: null,
@@ -112,7 +117,7 @@ export function CitizenReportForm() {
       if (context) {
         context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
         const photoDataUrl = canvas.toDataURL('image/jpeg');
-        setFormData({ ...formData, photo: photoDataUrl as any });
+        setFormData({ ...formData, photo: photoDataUrl });
       }
     }
   };
@@ -201,20 +206,20 @@ export function CitizenReportForm() {
                 Usa tu cámara para tomar una foto del incidente. La ubicación se
                 adjuntará automáticamente.
               </CardDescription>
-              <div className="relative aspect-video bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center">
-                <video ref={videoRef} className="w-full aspect-video rounded-md" autoPlay muted />
+              <div className="relative aspect-video bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden">
+                <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
                 <canvas ref={canvasRef} className="hidden" />
                 {formData.photo && (
-                  <Image src={formData.photo} alt="Vista previa de la foto" layout="fill" className="object-cover rounded-md" />
+                  <Image src={formData.photo} alt="Vista previa de la foto" fill className="object-cover" />
                 )}
                 {!hasCameraPermission && (
-                   <Alert variant="destructive" className="m-4">
-                     <AlertTriangle className="h-4 w-4" />
-                     <AlertTitle>Se requiere acceso a la cámara</AlertTitle>
-                     <AlertDescription>
-                       Por favor, permite el acceso a la cámara para reportar.
-                     </AlertDescription>
-                   </Alert>
+                  <Alert variant="destructive" className="m-4">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertTitle>Se requiere acceso a la cámara</AlertTitle>
+                    <AlertDescription>
+                      Por favor, permite el acceso a la cámara para reportar.
+                    </AlertDescription>
+                  </Alert>
                 )}
               </div>
               <div className="flex gap-2">

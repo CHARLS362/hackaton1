@@ -39,9 +39,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Iniciar Sesión
-                </a>
+                <Link href="/dashboard" className="hover:text-white transition-colors">
+                  Acceso al Sistema
+                </Link>
               </li>
             </ul>
           </div>

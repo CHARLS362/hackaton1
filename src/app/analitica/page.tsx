@@ -10,6 +10,8 @@ import { TopJournalsChart } from '@/components/analitica/top-journals-chart';
 import { TopInstitutionsChart } from '@/components/analitica/top-institutions-chart';
 import { MethodologiesChart } from '@/components/analitica/methodologies-chart';
 import { KeywordsCloud } from '@/components/analitica/keywords-cloud';
+import { PublicationsChart } from '@/components/analitica/publications-chart';
+import { TopAuthorsChart } from '@/components/analitica/top-authors-chart';
 
 export default function AnaliticaPage() {
   return (
@@ -56,6 +58,8 @@ export default function AnaliticaPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <PublicationsChart />
+            <TopAuthorsChart />
             <TopJournalsChart />
             <TopInstitutionsChart />
             <MethodologiesChart />

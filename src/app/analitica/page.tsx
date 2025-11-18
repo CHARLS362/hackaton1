@@ -12,10 +12,14 @@ import { MethodologiesChart } from '@/components/analitica/methodologies-chart';
 import { KeywordsCloud } from '@/components/analitica/keywords-cloud';
 import { PublicationsChart } from '@/components/analitica/publications-chart';
 import { TopAuthorsChart } from '@/components/analitica/top-authors-chart';
+import { AudioPlayer } from '@/components/layout/audio-player';
 
 export default function AnaliticaPage() {
+  const pageDescription =
+    'Bienvenido a la sección de Analítica. Aquí puedes explorar información avanzada y visualizaciones interactivas de la base de datos de investigación, incluyendo tendencias de publicación, autores destacados e instituciones de élite.';
   return (
     <div className="bg-white min-h-screen">
+      <AudioPlayer text={pageDescription} />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <header className="mb-12">
           <div className="flex items-center gap-3 mb-3">

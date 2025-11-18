@@ -19,12 +19,16 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { FileUp } from "lucide-react";
+import { AudioPlayer } from "@/components/layout/audio-player";
 
 export default function ReportPage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === "hero-background");
+  const pageDescription =
+    "Bienvenido a la sección de Reporte Ciudadano. Tu ayuda es fundamental. Usa este formulario para reportar cualquier incidente ambiental que observes en el lago o sus alrededores.";
 
   return (
     <div>
+      <AudioPlayer text={pageDescription} />
       <section className="relative py-24 md:py-32 bg-slate-900 text-white text-center">
         {heroImage && (
           <Image

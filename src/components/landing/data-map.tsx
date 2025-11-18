@@ -1,17 +1,77 @@
 "use client";
-import { Map, GeoJson } from "pigeon-maps";
-import cuencaData from "@/data/cuenca.json";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Compass } from "lucide-react";
+import { useEffect, useRef } from "react";
+import lagoTiticacaDataUTM from "@/data/lago_titicaca.json";
 
 export function DataMap() {
-  const geoJsonStyle = {
-    fill: "hsla(217, 91%, 60%, 0.2)",
-    stroke: "hsla(217, 91%, 60%, 0.8)",
-    strokeWidth: 2,
-  };
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<any>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !mapContainer.current) return;
+
+    Promise.all([import("leaflet"), import("proj4")]).then(([L, proj4Module]) => {
+      if (!mapContainer.current) return;
+
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+      }
+
+      const proj4 = proj4Module.default;
+      
+      // Definir proyecciones: UTM Zone 19S y WGS84
+      const utmZone19S = '+proj=utm +zone=19 +south +datum=WGS84 +units=m +no_defs';
+      const wgs84 = '+proj=longlat +datum=WGS84 +no_defs';
+
+      const map = L.map(mapContainer.current).setView([-15.9, -69.4], 9);
+      mapInstance.current = map;
+
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19,
+        subdomains: ['a', 'b', 'c', 'd']
+      }).addTo(map);
+
+      // Convertir coordenadas con proj4
+      const convertCoords = (coords: any): any => {
+        if (typeof coords[0] === "number") {
+          const [lng, lat] = proj4(utmZone19S, wgs84, [coords[0], coords[1]]);
+          return [lat, lng];
+        }
+        return coords.map(convertCoords);
+      };
+
+      // Procesar features
+      lagoTiticacaDataUTM.features?.forEach((feature: any) => {
+        if (feature.geometry?.coordinates) {
+          const converted = convertCoords(feature.geometry.coordinates);
+          
+          if (feature.geometry.type === "MultiPolygon") {
+            converted.forEach((polygon: any) => {
+              L.polygon(polygon, {
+                color: "#4A90E2",
+                fillColor: "#4A90E2",
+                fillOpacity: 0.3,
+                weight: 2,
+              }).addTo(map);
+            });
+          }
+        }
+      });
+    }).catch((error) => {
+      console.error("Error loading map libraries:", error);
+    });
+
+    return () => {
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
+      }
+    };
+  }, []);
 
   return (
     <section id="map" className="py-12 sm:py-16 lg:py-24 bg-white">
@@ -32,30 +92,15 @@ export function DataMap() {
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
-          <div className={cn("h-[60vh] w-full z-0 rounded-lg mt-2 relative")}>
-            <Map
-              defaultCenter={[-15.9, -69.4]}
-              defaultZoom={8}
-              provider={(x, y, z) => {
-                return `https://{s}.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png`;
-              }}
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-              attributionPrefix={false}
-              mouseEvents={false}
-              touchEvents={false}
-            >
-              <GeoJson
-                data={cuencaData}
-                styleCallback={() => geoJsonStyle}
-              />
-            </Map>
-            <div className="absolute inset-0 flex items-center justify-center bg-white/30 transition-all hover:bg-white/10 group z-10">
+          <div className={cn("h-[80vh] w-full z-0 rounded-lg mt-2 relative")}>
+            <div ref={mapContainer} className="h-full w-full rounded-lg" />
+            <div className="absolute top-4 right-4 z-[1000] pointer-events-auto">
               <Button
                 size="lg"
                 asChild
-                className="scale-100 group-hover:scale-105 transition-transform"
+                className="shadow-xl hover:shadow-2xl transition-all"
               >
-                <Link href="/dashboard">
+                <Link href="/mapa">
                   <Compass className="mr-2 h-5 w-5" />
                   Explorar Mapa Interactivo
                 </Link>

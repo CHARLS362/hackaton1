@@ -1,9 +1,9 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MessageSquare, PlayCircle } from 'lucide-react';
+import { ArrowRight, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { textToSpeech } from '@/ai/flows/tts-flow';
 import { AudioPlayer } from './audio-player';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -14,19 +14,23 @@ export function Hero() {
   const [isLoading, setIsLoading] = useState(false);
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
 
-  const handlePlayWelcome = async () => {
-    setIsLoading(true);
-    try {
-      const welcomeText = 'Bienvenido a SIGA Titicaca. Nuestra plataforma integral para el monitoreo, análisis y acción ambiental del Lago Titicaca.';
-      const response = await textToSpeech(welcomeText);
-      if (response?.media) {
-        setAudio(response.media);
+  useEffect(() => {
+    const handlePlayWelcome = async () => {
+      setIsLoading(true);
+      try {
+        const welcomeText = 'Bienvenido a SIGA Titicaca. Nuestra plataforma integral para el monitoreo, análisis y acción ambiental del Lago Titicaca.';
+        const response = await textToSpeech(welcomeText);
+        if (response?.media) {
+          setAudio(response.media);
+        }
+      } catch (error) {
+        console.error('Error generating speech:', error);
       }
-    } catch (error) {
-      console.error('Error generating speech:', error);
-    }
-    setIsLoading(false);
-  };
+      setIsLoading(false);
+    };
+
+    handlePlayWelcome();
+  }, []);
 
   return (
     <section className="relative h-[90vh] min-h-[700px] max-h-[1080px] w-full flex items-center justify-center text-center text-white overflow-hidden">
@@ -52,7 +56,7 @@ export function Hero() {
         <p className="mt-6 max-w-2xl text-lg text-slate-100 animate-fade-in-up animation-delay-200">
           Una plataforma inteligente para el monitoreo y la preservación del Lago Titicaca, uniendo tecnología y comunidad.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animation-delay-400">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-400">
           <Button
             size="lg"
             className="group rounded-full text-lg px-8 py-6 bg-blue-500 hover:bg-blue-600 text-white shadow-lg shadow-blue-500/30"
@@ -63,16 +67,6 @@ export function Hero() {
               Comienza a explorar
               <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="group rounded-full text-lg px-8 py-6 border-slate-200 text-white hover:bg-white/20 hover:text-white transition-all"
-            onClick={handlePlayWelcome}
-            disabled={isLoading}
-          >
-            <PlayCircle className="mr-3 h-6 w-6" />
-            {isLoading ? 'Generando...' : 'Escuchar Bienvenida'}
           </Button>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { ArrowRight, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
+import GradientText from '../ui/gradient-text';
 
 export function Hero() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
@@ -26,9 +27,13 @@ export function Hero() {
         <h1 className="text-6xl md:text-8xl font-bold tracking-tight animate-fade-in-up font-headline text-white">
           Protegiendo el
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-300">
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+          >
             corazón de los Andes
-          </span>
+          </GradientText>
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-slate-100 animate-fade-in-up animation-delay-200">
           Una plataforma inteligente para el monitoreo y la preservación del Lago Titicaca, uniendo tecnología y comunidad.

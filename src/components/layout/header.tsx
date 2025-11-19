@@ -7,7 +7,9 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { GooeyNav } from "./gooey-nav";
+import GooeyNav from "./gooey-nav";
+import { usePathname } from "next/navigation";
+
 
 const navLinks = [
   { href: "/chat", label: "Charlar" },
@@ -19,8 +21,12 @@ const navLinks = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  const activeIndex = navLinks.findIndex(link => link.href === pathname);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +45,10 @@ export function Header() {
         <Logo />
 
         <div className="hidden md:block">
-          <GooeyNav links={navLinks} />
+           <GooeyNav
+              items={navLinks}
+              initialActiveIndex={activeIndex !== -1 ? activeIndex : 0}
+            />
         </div>
 
         <div className="md:hidden">

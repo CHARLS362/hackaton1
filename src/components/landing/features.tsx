@@ -14,6 +14,7 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
 import RotatingText from "../ui/rotating-text";
+import SpotlightCard from "../ui/spotlight-card";
 
 const features = [
   {
@@ -80,8 +81,9 @@ export function Features() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
           {features.map((feature) => (
             <Link href="/dashboard" key={feature.title} className={feature.className}>
-              <Card
-                className={`group h-full relative overflow-hidden rounded-2xl bg-white hover:bg-slate-50 hover:shadow-xl transition-all duration-300 border hover:border-primary flex flex-col`}
+              <SpotlightCard
+                className={`group h-full rounded-2xl bg-white shadow-lg transition-all duration-300 border flex flex-col`}
+                spotlightColor="rgba(45, 155, 240, 0.2)"
               >
                 <CardHeader>
                   <div className="flex items-center gap-3">
@@ -106,7 +108,7 @@ export function Features() {
                     </div>
                   )}
                 </CardContent>
-              </Card>
+              </SpotlightCard>
             </Link>
           ))}
         </div>

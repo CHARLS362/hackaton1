@@ -28,8 +28,8 @@ export function Hero() {
           Protegiendo el
           <br />
           <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={3}
+            colors={["#2dd4bf", "#3b82f6", "#2dd4bf"]}
+            animationSpeed={15}
             showBorder={false}
           >
             corazón de los Andes

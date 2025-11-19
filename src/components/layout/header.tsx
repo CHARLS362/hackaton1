@@ -50,12 +50,6 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
-          <Button asChild className="rounded-full">
-            <Link href="/dashboard">Acceso al Sistema</Link>
-          </Button>
-        </div>
-
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
@@ -78,11 +72,6 @@ export function Header() {
                       {link.label}
                     </Link>
                   ))}
-                </div>
-                <div className="mt-8 flex flex-col gap-4">
-                  <Button asChild>
-                    <Link href="/dashboard">Acceso al Sistema</Link>
-                  </Button>
                 </div>
               </div>
             </SheetContent>

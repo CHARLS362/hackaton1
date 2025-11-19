@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
+import RotatingText from "../ui/rotating-text";
 
 const features = [
   {
@@ -56,8 +57,20 @@ export function Features() {
     <section id="modules" className="py-12 sm:py-16 lg:py-24 bg-slate-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Un Ecosistema Tecnológico Integrado
+          <h2 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2">
+            <span>Un Ecosistema de</span>
+            <RotatingText
+              texts={['Análisis', 'Monitoreo', 'Acción']}
+              mainClassName="px-2 sm:px-2 md:px-3 bg-primary text-primary-foreground overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
             Combinamos múltiples fuentes de datos para ofrecer una visión 360°

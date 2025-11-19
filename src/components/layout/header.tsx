@@ -7,6 +7,7 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { GooeyNav } from "./gooey-nav";
 
 const navLinks = [
   { href: "/chat", label: "Charlar" },
@@ -37,18 +38,9 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Logo />
 
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-primary relative group"
-            >
-              {link.label}
-              <span className="absolute bottom-[-2px] left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-300"></span>
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden md:block">
+          <GooeyNav links={navLinks} />
+        </div>
 
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>

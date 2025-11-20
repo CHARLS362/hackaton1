@@ -20,22 +20,44 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { Camera, RefreshCcw } from 'lucide-react';
+import { Camera, RefreshCcw, Video, VideoOff } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { LocationPicker } from '@/components/report/location-picker';
 
 export default function ReportPage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
   const { toast } = useToast();
 
+  const [isCameraOn, setIsCameraOn] = useState(false);
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [location, setLocation] = useState<[number, number] | null>(null);
+  
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const getCameraPermission = async () => {
+    return () => {
+        if (videoRef.current && videoRef.current.srcObject) {
+            const stream = videoRef.current.srcObject as MediaStream;
+            stream.getTracks().forEach(track => track.stop());
+        }
+    };
+  }, []);
+  
+  const toggleCamera = async () => {
+    if (isCameraOn) {
+      // Turn camera off
+      if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        stream.getTracks().forEach(track => track.stop());
+        videoRef.current.srcObject = null;
+      }
+      setIsCameraOn(false);
+    } else {
+      // Turn camera on
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         console.error('Camera API is not supported by this browser.');
         setHasCameraPermission(false);
@@ -53,6 +75,7 @@ export default function ReportPage() {
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
         }
+        setIsCameraOn(true);
       } catch (error) {
         console.error('Error accessing camera:', error);
         setHasCameraPermission(false);
@@ -63,17 +86,9 @@ export default function ReportPage() {
             'Por favor, habilita los permisos de cámara en tu navegador para usar esta función.',
         });
       }
-    };
+    }
+  };
 
-    getCameraPermission();
-
-    return () => {
-        if (videoRef.current && videoRef.current.srcObject) {
-            const stream = videoRef.current.srcObject as MediaStream;
-            stream.getTracks().forEach(track => track.stop());
-        }
-    };
-  }, [toast]);
 
   const handleCapture = () => {
     if (videoRef.current && canvasRef.current) {
@@ -96,8 +111,16 @@ export default function ReportPage() {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!location) {
+        toast({
+            variant: "destructive",
+            title: "Ubicación requerida",
+            description: "Por favor, marca la ubicación del incidente en el mapa.",
+        });
+        return;
+    }
     // Logic to handle form submission will go here
-    console.log("Submitting report...");
+    console.log("Submitting report...", { location });
     toast({
         title: "Reporte Enviado (Simulación)",
         description: "Tu reporte ha sido recibido y será analizado por nuestro equipo.",
@@ -133,24 +156,22 @@ export default function ReportPage() {
             <CardHeader>
               <CardTitle>Formulario de Reporte</CardTitle>
               <CardDescription>
-                Completa los siguientes campos para enviar tu reporte. Todos
-                los campos son importantes.
+                Completa los siguientes campos para enviar tu reporte. La ubicación es indispensable.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Tu Nombre</Label>
-                    <Input id="name" placeholder="Ej: Juan Pérez" required />
+                    <Label htmlFor="name">Tu Nombre (Opcional)</Label>
+                    <Input id="name" placeholder="Ej: Juan Pérez" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Tu Email</Label>
+                    <Label htmlFor="email">Tu Email (Opcional)</Label>
                     <Input
                       id="email"
                       type="email"
                       placeholder="Ej: juan.perez@email.com"
-                      required
                     />
                   </div>
                 </div>
@@ -176,19 +197,15 @@ export default function ReportPage() {
                     </SelectContent>
                   </Select>
                 </div>
-
+                
                 <div className="space-y-2">
-                  <Label htmlFor="location">Ubicación del Incidente</Label>
-                  <Input
-                    id="location"
-                    placeholder="Ej: Cerca del muelle de Puno"
-                    required
-                  />
-                  <p className="text-xs text-muted-foreground">
-                    Sé lo más específico posible. Puedes incluir coordenadas si
-                    las conoces.
+                  <Label htmlFor="location">Ubicación del Incidente (Requerido)</Label>
+                   <LocationPicker onLocationChange={setLocation} />
+                   <p className="text-xs text-muted-foreground">
+                    Haz clic en el mapa para marcar la ubicación exacta del incidente.
                   </p>
                 </div>
+
 
                 <div className="space-y-2">
                   <Label htmlFor="description">
@@ -203,8 +220,13 @@ export default function ReportPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="evidence">Evidencia Fotográfica</Label>
-                  {hasCameraPermission === false && (
+                  <Label>Evidencia Fotográfica (Opcional)</Label>
+                   <Button type="button" onClick={toggleCamera} variant="outline" className="w-full mb-4">
+                      {isCameraOn ? <VideoOff className="mr-2 h-4 w-4" /> : <Video className="mr-2 h-4 w-4" />}
+                      {isCameraOn ? 'Desactivar Cámara' : 'Activar Cámara'}
+                    </Button>
+
+                  {hasCameraPermission === false && isCameraOn && (
                     <Alert variant="destructive">
                       <AlertTitle>Cámara no disponible</AlertTitle>
                       <AlertDescription>
@@ -214,7 +236,7 @@ export default function ReportPage() {
                     </Alert>
                   )}
                   
-                  {hasCameraPermission && !capturedImage && (
+                  {isCameraOn && hasCameraPermission && !capturedImage && (
                     <div className="space-y-4">
                        <div className="w-full bg-slate-900 rounded-lg overflow-hidden aspect-video">
                           <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />

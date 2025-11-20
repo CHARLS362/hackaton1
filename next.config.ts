@@ -33,10 +33,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.tile.openstreetmap.org",
       },
-      {
-        protocol: "https",
-        hostname: "**.basemaps.cartocdn.com",
-      },
     ],
   },
 };

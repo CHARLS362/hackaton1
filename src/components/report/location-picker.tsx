@@ -2,17 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import { Map, Marker } from 'pigeon-maps';
-import { maptiler } from 'pigeon-maps/providers';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { LocateFixed, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { osm } from 'pigeon-maps/providers';
+
 
 interface LocationPickerProps {
   onLocationChange: (location: [number, number]) => void;
 }
-
-const mapTilerProvider = maptiler('r15x45m4g3j3j3g5c6g7', 'streets-v2');
 
 export function LocationPicker({ onLocationChange }: LocationPickerProps) {
   const [hue, setHue] = useState(0);
@@ -74,9 +73,7 @@ export function LocationPicker({ onLocationChange }: LocationPickerProps) {
   return (
     <div className="h-64 w-full rounded-lg overflow-hidden border border-input relative">
       <Map
-        provider={(x, y, z) => {
-          return `https://{s}.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png`
-        }}
+        provider={osm}
         dprs={[1, 2]}
         center={mapCenter}
         zoom={mapZoom}

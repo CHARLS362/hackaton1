@@ -85,13 +85,13 @@ export function ChatInterface() {
   };
   
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-transparent min-h-screen">
       <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl relative z-10">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline text-slate-800">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.4)]">
             ¿Qué quieres saber sobre el Lago Titicaca?
           </h1>
-          <p className="text-slate-500 mt-3 text-lg">
+          <p className="text-slate-200 mt-3 text-lg [text-shadow:0_1px_3px_rgba(0,0,0,0.3)]">
             Pregúntame sobre su ecosistema, contaminación, y esfuerzos de conservación.
           </p>
         </div>
@@ -103,7 +103,7 @@ export function ChatInterface() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Escribe tu pregunta aquí..."
-              className="flex-grow text-base"
+              className="flex-grow text-base bg-white/90 backdrop-blur-sm border-slate-300"
             />
             <Button type="submit" disabled={loading} className="w-28 bg-blue-500 hover:bg-blue-600 text-white">
               {loading ? (
@@ -119,7 +119,7 @@ export function ChatInterface() {
 
         {!result && !loading && (
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-slate-500">
+            <h3 className="mb-4 text-sm font-semibold text-slate-200 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
               Preguntas de investigación sugeridas:
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -127,7 +127,7 @@ export function ChatInterface() {
                 <button
                   key={q.text}
                   onClick={() => handleSuggestedQuestionClick(q.text)}
-                  className="flex items-center gap-4 p-4 text-left border bg-slate-50 border-slate-200 rounded-lg hover:bg-slate-100 hover:shadow-sm transition-all text-slate-700"
+                  className="flex items-center gap-4 p-4 text-left border bg-white/90 backdrop-blur-sm border-slate-200 rounded-lg hover:bg-white transition-all text-slate-700 shadow-md hover:shadow-lg"
                 >
                   <div className={`p-2 rounded-lg ${q.color}`}>
                     <q.icon className="w-5 h-5" />
@@ -140,7 +140,7 @@ export function ChatInterface() {
         )}
 
         {loading && (
-          <Card>
+          <Card className="bg-white/90 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-slate-700">
                 <Loader2 className="animate-spin text-primary" />
@@ -161,7 +161,7 @@ export function ChatInterface() {
         )}
 
         {result && (
-          <Alert className='mt-8 animate-fade-in-up bg-blue-50 border-blue-200'>
+          <Alert className='mt-8 animate-fade-in-up bg-white/95 backdrop-blur-sm border-blue-200 shadow-xl'>
             <Sparkles className="h-5 w-5 text-primary" />
             <AlertTitle className="font-bold text-xl mb-2 text-slate-800">Respuesta</AlertTitle>
             <AlertDescription className="prose prose-sm max-w-none text-slate-600">

@@ -7,7 +7,7 @@ import FloatingLines from "../ui/floating-lines";
 
 export function Footer() {
   return (
-    <footer id="data" className="bg-slate-900 text-slate-400 relative overflow-hidden">
+    <footer id="data" className="bg-slate-900 text-slate-100 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <FloatingLines 
           enabledWaves={['top', 'middle', 'bottom']}
@@ -35,23 +35,23 @@ export function Footer() {
               <li>
                 <a
                   href="/#modules"
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-primary transition-colors text-white"
                 >
                   Módulos
                 </a>
               </li>
               <li>
-                <a href="/#map" className="hover:text-primary transition-colors">
+                <a href="/#map" className="hover:text-primary transition-colors text-white">
                   Mapa
                 </a>
               </li>
               <li>
-                <Link href="/report" className="hover:text-primary transition-colors">
+                <Link href="/report" className="hover:text-primary transition-colors text-white">
                   Reportar
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" className="hover:text-primary transition-colors">
+                <Link href="/dashboard" className="hover:text-primary transition-colors text-white">
                   Acceso al Sistema
                 </Link>
               </li>
@@ -62,12 +62,12 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a href="#" className="hover:text-primary transition-colors text-white">
                   Términos de Servicio
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a href="#" className="hover:text-primary transition-colors text-white">
                   Política de Privacidad
                 </a>
               </li>

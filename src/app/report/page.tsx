@@ -85,6 +85,7 @@ export default function ReportPage() {
         setHasCameraPermission(true);
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
+          videoRef.current.play(); // Explicitly play the video
         }
         setIsCameraOn(true);
       } catch (error) {
@@ -256,7 +257,7 @@ export default function ReportPage() {
                         <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
                     )}
                     {capturedImage && (
-                        <Image src={capturedImage} alt="Evidencia capturada" layout="fill" className="object-cover" />
+                        <Image src={capturedImage} alt="Evidencia capturada" fill className="object-cover" />
                     )}
                     {!isCameraOn && !capturedImage && (
                         <div className="w-full h-full flex items-center justify-center bg-slate-100">

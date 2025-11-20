@@ -202,7 +202,7 @@ export default function ReportPage() {
                   <Label htmlFor="location">Ubicación del Incidente (Requerido)</Label>
                    <LocationPicker onLocationChange={setLocation} />
                    <p className="text-xs text-muted-foreground">
-                    Haz clic en el mapa para marcar la ubicación exacta del incidente.
+                    Marca la ubicación en el mapa, usa tu ubicación actual o busca una dirección.
                   </p>
                 </div>
 

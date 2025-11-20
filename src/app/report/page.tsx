@@ -1,27 +1,108 @@
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+'use client';
+
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { FileUp } from "lucide-react";
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import { Camera, RefreshCcw } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 export default function ReportPage() {
-  const heroImage = PlaceHolderImages.find((p) => p.id === "hero-background");
+  const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
+  const { toast } = useToast();
+
+  const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const getCameraPermission = async () => {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        console.error('Camera API is not supported by this browser.');
+        setHasCameraPermission(false);
+        toast({
+          variant: 'destructive',
+          title: 'Cámara no Soportada',
+          description: 'Tu navegador no soporta el acceso a la cámara.',
+        });
+        return;
+      }
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        setHasCameraPermission(true);
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
+      } catch (error) {
+        console.error('Error accessing camera:', error);
+        setHasCameraPermission(false);
+        toast({
+          variant: 'destructive',
+          title: 'Acceso a la Cámara Denegado',
+          description:
+            'Por favor, habilita los permisos de cámara en tu navegador para usar esta función.',
+        });
+      }
+    };
+
+    getCameraPermission();
+
+    return () => {
+        if (videoRef.current && videoRef.current.srcObject) {
+            const stream = videoRef.current.srcObject as MediaStream;
+            stream.getTracks().forEach(track => track.stop());
+        }
+    };
+  }, [toast]);
+
+  const handleCapture = () => {
+    if (videoRef.current && canvasRef.current) {
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const context = canvas.getContext('2d');
+      if (context) {
+        context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+        const dataUrl = canvas.toDataURL('image/jpeg');
+        setCapturedImage(dataUrl);
+      }
+    }
+  };
+
+  const handleRetake = () => {
+    setCapturedImage(null);
+  };
+  
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Logic to handle form submission will go here
+    console.log("Submitting report...");
+    toast({
+        title: "Reporte Enviado (Simulación)",
+        description: "Tu reporte ha sido recibido y será analizado por nuestro equipo.",
+      });
+  }
 
   return (
     <div>
@@ -57,11 +138,11 @@ export default function ReportPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Tu Nombre</Label>
-                    <Input id="name" placeholder="Ej: Juan Pérez" />
+                    <Input id="name" placeholder="Ej: Juan Pérez" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Tu Email</Label>
@@ -69,13 +150,14 @@ export default function ReportPage() {
                       id="email"
                       type="email"
                       placeholder="Ej: juan.perez@email.com"
+                      required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="incident-type">Tipo de Incidente</Label>
-                  <Select>
+                  <Select required>
                     <SelectTrigger id="incident-type">
                       <SelectValue placeholder="Selecciona el tipo de incidente" />
                     </SelectTrigger>
@@ -86,15 +168,11 @@ export default function ReportPage() {
                       <SelectItem value="contaminacion">
                         Contaminación del Agua
                       </SelectItem>
-                      <SelectItem value="fauna">
-                        Fauna Afectada
-                      </SelectItem>
+                      <SelectItem value="fauna">Fauna Afectada</SelectItem>
                       <SelectItem value="deforestacion">
                         Deforestación en Orillas
                       </SelectItem>
-                       <SelectItem value="otro">
-                        Otro
-                      </SelectItem>
+                      <SelectItem value="otro">Otro</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -104,6 +182,7 @@ export default function ReportPage() {
                   <Input
                     id="location"
                     placeholder="Ej: Cerca del muelle de Puno"
+                    required
                   />
                   <p className="text-xs text-muted-foreground">
                     Sé lo más específico posible. Puedes incluir coordenadas si
@@ -119,21 +198,44 @@ export default function ReportPage() {
                     id="description"
                     placeholder="Describe lo que observaste con el mayor detalle posible."
                     rows={5}
+                    required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
-                    <Label htmlFor="evidence">Adjuntar Evidencia (Opcional)</Label>
-                    <div className="flex items-center justify-center w-full">
-                        <label htmlFor="evidence-upload" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700">
-                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                <FileUp className="w-8 h-8 mb-4 text-muted-foreground" />
-                                <p className="mb-2 text-sm text-muted-foreground"><span className="font-semibold">Haz clic para subir</span> o arrastra y suelta</p>
-                                <p className="text-xs text-muted-foreground">PNG, JPG, o MP4 (MAX. 10MB)</p>
-                            </div>
-                            <Input id="evidence-upload" type="file" className="hidden" />
-                        </label>
-                    </div> 
+                  <Label htmlFor="evidence">Evidencia Fotográfica</Label>
+                  {hasCameraPermission === false && (
+                    <Alert variant="destructive">
+                      <AlertTitle>Cámara no disponible</AlertTitle>
+                      <AlertDescription>
+                        No se pudo acceder a la cámara. Por favor, verifica los
+                        permisos de tu navegador.
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                  
+                  {hasCameraPermission && !capturedImage && (
+                    <div className="space-y-4">
+                       <div className="w-full bg-slate-900 rounded-lg overflow-hidden aspect-video">
+                          <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                       </div>
+                       <Button type="button" onClick={handleCapture} className="w-full">
+                            <Camera className="mr-2 h-4 w-4" /> Tomar Foto
+                        </Button>
+                    </div>
+                  )}
+
+                  {capturedImage && (
+                    <div className="space-y-4">
+                        <div className="w-full rounded-lg overflow-hidden aspect-video">
+                            <Image src={capturedImage} alt="Captured evidence" width={1280} height={720} className="w-full h-full object-cover" />
+                        </div>
+                         <Button type="button" onClick={handleRetake} variant="outline" className="w-full">
+                            <RefreshCcw className="mr-2 h-4 w-4" /> Tomar de Nuevo
+                        </Button>
+                    </div>
+                  )}
+                  <canvas ref={canvasRef} className="hidden"></canvas>
                 </div>
 
                 <Button type="submit" className="w-full">

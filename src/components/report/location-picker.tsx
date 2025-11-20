@@ -74,7 +74,9 @@ export function LocationPicker({ onLocationChange }: LocationPickerProps) {
   return (
     <div className="h-64 w-full rounded-lg overflow-hidden border border-input relative">
       <Map
-        provider={mapTilerProvider}
+        provider={(x, y, z) => {
+          return `https://{s}.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png`
+        }}
         dprs={[1, 2]}
         center={mapCenter}
         zoom={mapZoom}

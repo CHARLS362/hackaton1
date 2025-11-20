@@ -6,7 +6,7 @@ export default function ChatPage() {
   return (
     <div className="relative w-full h-full">
       <Aurora
-        colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+        colorStops={["#007CF0", "#00DFD8", "#7928CA"]}
         blend={0.5}
         amplitude={1.0}
         speed={0.5}

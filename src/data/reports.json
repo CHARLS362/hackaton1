@@ -1,0 +1,63 @@
+
+{
+  "reports": [
+    {
+      "id": "rep1",
+      "type": "Vertido de Residuos",
+      "description": "Se observó una gran cantidad de basura y escombros acumulados en la orilla, cerca del muelle principal. Parece ser de origen doméstico e industrial.",
+      "location": {
+        "lat": -15.83,
+        "lng": -69.33
+      },
+      "image": "https://picsum.photos/seed/report1/600/400",
+      "timestamp": "2024-07-22T10:30:00Z",
+      "author": "Juan Pérez"
+    },
+    {
+      "id": "rep2",
+      "type": "Contaminación del Agua",
+      "description": "El agua presenta un color verdoso oscuro y un olor fétido. Hay una gran mancha que se extiende desde el desagüe de la fábrica cercana.",
+      "location": {
+        "lat": -16.05,
+        "lng": -68.85
+      },
+      "image": "https://picsum.photos/seed/report2/600/400",
+      "timestamp": "2024-07-21T15:00:00Z"
+    },
+    {
+      "id": "rep3",
+      "type": "Fauna Afectada",
+      "description": "Se encontraron varias aves muertas en la playa, aparentemente cubiertas de una sustancia aceitosa. Es una escena muy triste.",
+      "location": {
+        "lat": -15.5,
+        "lng": -69.5
+      },
+      "image": "https://picsum.photos/seed/report3/600/400",
+      "timestamp": "2024-07-21T09:15:00Z",
+      "author": "Ana García"
+    },
+    {
+      "id": "rep4",
+      "type": "Deforestación en Orillas",
+      "description": "Han talado una gran cantidad de totora en la zona de reserva para construir lo que parece ser un muelle ilegal.",
+      "location": {
+        "lat": -16.25,
+        "lng": -68.75
+      },
+      "image": "https://picsum.photos/seed/report4/600/400",
+      "timestamp": "2024-07-20T18:45:00Z"
+    },
+    {
+      "id": "rep5",
+      "type": "Otro",
+      "description": "Una embarcación turística estaba derramando combustible directamente en el lago. Logré tomar una foto de la matrícula.",
+      "location": {
+        "lat": -15.65,
+        "lng": -69.45
+      },
+      "image": "https://picsum.photos/seed/report5/600/400",
+      "timestamp": "2024-07-20T12:00:00Z",
+      "author": "Carlos Mendoza"
+    }
+  ]
+}

@@ -1,0 +1,1237 @@
+[
+    [
+        {
+            "id": 128,
+            "nombre": "ANA_OCT2019",
+            "titulo": "Octubre 2019 - Monitoreo de Calidad H\u00eddrica del Lago Titicaca Per\u00fa",
+            "resumen": "Representa los puntos de monitoreo binacional de calidad h&iacute;drica del lago Titicaca desarrollado en el mes de octubre de 2019.",
+            "objetivo": "Conocer los resultados de los par&aacute;metros de calidad de agua monitoreados para el an&aacute;lisis correspondiente sobre la calidad h&iacute;drica del lago Titicaca para una mejor planificaci&oacute;n.",
+            "restricciones": "Los par&aacute;metros de calidad de agua monitoreados, fueron analizados en el laboratorio de Per&uacute;.",
+            "suplemento": "No se provee informaci&oacute;n",
+            "calidaddatos": "La cobertura de puntos de monitoreo binacional de calidad h&iacute;drica del lago Titicaca - Per&uacute;, es desarrollado por la ALT y la Autoridad Nacional del Agua (ANA) de Per&uacute;, la georeferenciaci&oacute;n de puntos se encuentra a escala 1:20.000"
+        }
+    ],
+    {
+        "type": "FeatureCollection",
+        "name": "ANA_OCT2019",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 1,
+                    "numero": 1,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit59",
+                    "nombre": "Bahia Interior de Puno, frente de Muelle principal (Puno)",
+                    "departamento": "PUNO",
+                    "fecha": "28\/10\/2019",
+                    "hora": "9:30",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "9.08",
+                    "coordenada": "POINT(391402 8249013)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -70.014142873,
+                        -15.835366917
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 2,
+                    "numero": 2,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit60",
+                    "nombre": "Bahia Interior de Puno, frente de zona Huajje (Puno)",
+                    "departamento": "PUNO",
+                    "fecha": "28\/10\/2019",
+                    "hora": "10:20",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "9.06",
+                    "coordenada": "POINT(392656 8249344)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -70.002418932,
+                        -15.832429392
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 3,
+                    "numero": 3,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit61",
+                    "nombre": "Bahia Interior de Puno, frente de zona Chimu (Puno)",
+                    "departamento": "PUNO",
+                    "fecha": "28\/10\/2019",
+                    "hora": "12:30",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.86",
+                    "coordenada": "POINT(394641 8246844)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.9839937,
+                        -15.855112259
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 4,
+                    "numero": 4,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit62",
+                    "nombre": "Bahia Interior de Puno, en trayecto principal de transito lacustre",
+                    "departamento": "PUNO",
+                    "fecha": "28\/10\/2019",
+                    "hora": "11:40",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.99",
+                    "coordenada": "POINT(393607 8248395)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.993581038,
+                        -15.84104843
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 5,
+                    "numero": 5,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit63",
+                    "nombre": "Bahia Interior de Puno, pr\ufffdximo al vertimiento de EMSAPUNO",
+                    "departamento": "PUNO",
+                    "fecha": "28\/10\/2019",
+                    "hora": "12:00",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.95",
+                    "coordenada": "POINT(393377 8247327)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.995776055,
+                        -15.850692408
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 6,
+                    "numero": 6,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit64",
+                    "nombre": "Bahia Interior de Puno, pr\ufffdximo a isla Esteves y trayecto a Los Uros",
+                    "departamento": "PUNO",
+                    "fecha": "28\/10\/2019",
+                    "hora": "11:10",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "9.54",
+                    "coordenada": "POINT(394477 8249053)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.985428323,
+                        -15.835137712
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 7,
+                    "numero": 7,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit65",
+                    "nombre": "Bahia de Puno, frente al Sector Callejon - Chimu",
+                    "departamento": "PUNO",
+                    "fecha": "29\/10\/2019",
+                    "hora": "8:40",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.85",
+                    "coordenada": "POINT(399844 8246416)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.935423229,
+                        -15.859196333
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 8,
+                    "numero": 8,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit66",
+                    "nombre": "Bahia de Puno, frente al Sector Ojjerani",
+                    "departamento": "PUNO",
+                    "fecha": "28\/10\/2019",
+                    "hora": "13:10",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.95",
+                    "coordenada": "POINT(398338 8247832)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.949427517,
+                        -15.846335505
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 9,
+                    "numero": 9,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit67",
+                    "nombre": "Bahia de Puno, frente al Sector Kcapi -Uros",
+                    "departamento": "PUNO",
+                    "fecha": "29\/10\/2019",
+                    "hora": "11:15",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.83",
+                    "coordenada": "POINT(402628 8249587)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.909295672,
+                        -15.830643133
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 10,
+                    "numero": 10,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit68",
+                    "nombre": "Bahia de Puno, frente al Sector Cusipata (Chucuito)",
+                    "departamento": "PUNO",
+                    "fecha": "29\/10\/2019",
+                    "hora": "9:40",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.79",
+                    "coordenada": "POINT(403161 8245407)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.904487062,
+                        -15.868448651
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 11,
+                    "numero": 11,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit69",
+                    "nombre": "Bahia de Puno, frente a Chucuito",
+                    "departamento": "PUNO",
+                    "fecha": "29\/10\/2019",
+                    "hora": "10:20",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.79",
+                    "coordenada": "POINT(407055 8245401)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.86811997,
+                        -15.868651782
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 12,
+                    "numero": 12,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit70",
+                    "nombre": "Bahia de Puno, frente a Tacasaya (peninsula de Chucuito)",
+                    "departamento": "PUNO",
+                    "fecha": "29\/10\/2019",
+                    "hora": "12:00",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.79",
+                    "coordenada": "POINT(406610 8250115)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.872092984,
+                        -15.826022937
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 13,
+                    "numero": 13,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit71",
+                    "nombre": "Bahia de Puno, frente a Luquina (peninsula de Chucuito)",
+                    "departamento": "PUNO",
+                    "fecha": "29\/10\/2019",
+                    "hora": "12:30",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.71",
+                    "coordenada": "POINT(408155 8255662)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.857455582,
+                        -15.775937996
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 14,
+                    "numero": 14,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit72",
+                    "nombre": "Bahia de Puno, entre peninsula de Chucuito y peninsula de Capachica",
+                    "departamento": "PUNO",
+                    "fecha": "30\/10\/2019",
+                    "hora": "8:00",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.69",
+                    "coordenada": "POINT(414280 8258223)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.800186643,
+                        -15.753005052
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 15,
+                    "numero": 15,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit73",
+                    "nombre": "Bahia de Puno, frente a Tangra (peninsula de Capachica)",
+                    "departamento": "PUNO",
+                    "fecha": "30\/10\/2019",
+                    "hora": "7:20",
+                    "tipo": "Bahia",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.92",
+                    "coordenada": "POINT(410579 8262593)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.834571362,
+                        -15.713372095
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 16,
+                    "numero": 16,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit01",
+                    "nombre": "Lago mayor, desembocadura del rio Ramis",
+                    "departamento": "PUNO",
+                    "fecha": "31\/10\/2019",
+                    "hora": "9:30",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.77",
+                    "coordenada": "POINT(418233 8304485)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.761749653,
+                        -15.334929653
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 17,
+                    "numero": 17,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit02",
+                    "nombre": "Lago mayor, Zona Vilquechico - Huancane",
+                    "departamento": "PUNO",
+                    "fecha": "31\/10\/2019",
+                    "hora": "10:40",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.09",
+                    "coordenada": "POINT(425551 8304475)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.693578481,
+                        -15.335242268
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 18,
+                    "numero": 18,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit03",
+                    "nombre": "Lago mayor, zona de Taraco - Pusi",
+                    "departamento": "PUNO",
+                    "fecha": "31\/10\/2019",
+                    "hora": "8:20",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.8",
+                    "coordenada": "POINT(411036 8297691)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.829035473,
+                        -15.396108467
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 19,
+                    "numero": 19,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit04",
+                    "nombre": "Lago mayor, zona entre Huancane y Moho",
+                    "departamento": "PUNO",
+                    "fecha": "31\/10\/2019",
+                    "hora": "11:10",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.71",
+                    "coordenada": "POINT(425888 8296854)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.690665938,
+                        -15.404147912
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 20,
+                    "numero": 20,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit05",
+                    "nombre": "Lago mayor, zona frente a Moho",
+                    "departamento": "PUNO",
+                    "fecha": "31\/10\/2019",
+                    "hora": "13:30",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.75",
+                    "coordenada": "POINT(441303 8295079)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.547057471,
+                        -15.420594603
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 21,
+                    "numero": 21,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit06",
+                    "nombre": "Lago mayor, zona frente a Escallani (Capachica)",
+                    "departamento": "PUNO",
+                    "fecha": "30\/10\/2019",
+                    "hora": "13:00",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.61",
+                    "coordenada": "POINT(407580 8286901)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.861641283,
+                        -15.493526024
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 22,
+                    "numero": 22,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit07",
+                    "nombre": "Lago mayor, zona frente a aprox 13 km de Moho",
+                    "departamento": "PUNO",
+                    "fecha": "31\/10\/2019",
+                    "hora": "13:00",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.74",
+                    "coordenada": "POINT(434430 8288400)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.611288449,
+                        -15.480808105
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 23,
+                    "numero": 23,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit08",
+                    "nombre": "Lago mayor, zona frente a Conima",
+                    "departamento": "PUNO",
+                    "fecha": "1\/11\/2019",
+                    "hora": "8:50",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.65",
+                    "coordenada": "POINT(452136 8284541)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.446300133,
+                        -15.516089903
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 24,
+                    "numero": 24,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit09",
+                    "nombre": "Lago mayor, zona frente a Ccotos(Capachica)",
+                    "departamento": "PUNO",
+                    "fecha": "30\/10\/2019",
+                    "hora": "11:30",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.68",
+                    "coordenada": "POINT(420270 8274296)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.743747787,
+                        -15.607904704
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 25,
+                    "numero": 25,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit10",
+                    "nombre": "Lago mayor, zona proxima ala IsIa Soto",
+                    "departamento": "PUNO",
+                    "fecha": "1\/11\/2019",
+                    "hora": "9:45",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.72",
+                    "coordenada": "POINT(445219 8277660)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.510948214,
+                        -15.578157357
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 26,
+                    "numero": 26,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit12",
+                    "nombre": "Lago mayor, zona entre Llachon (Capachica) y la isla Taquile",
+                    "departamento": "PUNO",
+                    "fecha": "30\/10\/2019",
+                    "hora": "8:40",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.72",
+                    "coordenada": "POINT(420000 8258200)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.746795222,
+                        -15.753402495
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 27,
+                    "numero": 27,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit13",
+                    "nombre": "Lago mayor, zona proxima ala isla Amantani",
+                    "departamento": "PUNO",
+                    "fecha": "30\/10\/2019",
+                    "hora": "10:00",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.62",
+                    "coordenada": "POINT(430880 8263510)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.645084774,
+                        -15.705724173
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 28,
+                    "numero": 28,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit14",
+                    "nombre": "Lago mayor,zona frente a Tilali",
+                    "departamento": "PUNO",
+                    "fecha": "1\/11\/2019",
+                    "hora": "11:20",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.69",
+                    "coordenada": "POINT(456468 8266450)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.406229449,
+                        -15.679719825
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 29,
+                    "numero": 29,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit16",
+                    "nombre": "Lago mayor, zona proxima alalsla Taquile",
+                    "departamento": "PUNO",
+                    "fecha": "1\/11\/2019",
+                    "hora": "12:45",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.7",
+                    "coordenada": "POINT(442197 8252259)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.539737517,
+                        -15.80772189
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 30,
+                    "numero": 30,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit18",
+                    "nombre": "Lago mayor, zona Huencalla (Plater\ufffda), produccion acuicola PISCIS S.A.C.",
+                    "departamento": "PUNO",
+                    "fecha": "1\/11\/2019",
+                    "hora": "14:30",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.72",
+                    "coordenada": "POINT(421981 8241699)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.72883823,
+                        -15.902631168
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 31,
+                    "numero": 31,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit19",
+                    "nombre": "Lago mayor, zona frente a Villa Socca (Acora)",
+                    "departamento": "PUNO",
+                    "fecha": "2\/11\/2019",
+                    "hora": "9:30",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.66",
+                    "coordenada": "POINT(437748 8241366)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.581560814,
+                        -15.90608812
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 32,
+                    "numero": 32,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit20",
+                    "nombre": "Lago mayor, zona centrica del Lago Titicaca",
+                    "departamento": "PUNO",
+                    "fecha": "2\/11\/2019",
+                    "hora": "11:20",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.7",
+                    "coordenada": "POINT(460248 8246095)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.371290585,
+                        -15.863800047
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 33,
+                    "numero": 33,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit23",
+                    "nombre": "Lago mayor, zona pr\ufffdxima ala desembocadura del rio llave",
+                    "departamento": "PUNO",
+                    "fecha": "2\/11\/2019",
+                    "hora": "14:00",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "7.6",
+                    "coordenada": "POINT(454147 8232140)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.428541431,
+                        -15.98985111
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 34,
+                    "numero": 34,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit26",
+                    "nombre": "Lago mayor, zona frente a Pilcuyo",
+                    "departamento": "PUNO",
+                    "fecha": "2\/11\/2019",
+                    "hora": "12:50",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.73",
+                    "coordenada": "POINT(466679 8227895)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.311478517,
+                        -16.028428584
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 35,
+                    "numero": 35,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit29",
+                    "nombre": "Lago mayor, zona frente a Juli",
+                    "departamento": "PUNO",
+                    "fecha": "3\/11\/2019",
+                    "hora": "7:50",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.65",
+                    "coordenada": "POINT(452976 8214840)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.439828879,
+                        -16.146222529
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 36,
+                    "numero": 36,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit33",
+                    "nombre": "Lago mayor, zona Chucasuyo ?Juli), produccion acuicola a menor escala",
+                    "departamento": "PUNO",
+                    "fecha": "3\/11\/2019",
+                    "hora": "8:45",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.76",
+                    "coordenada": "POINT(458788 8209314)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.385565407,
+                        -16.196283143
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 37,
+                    "numero": 37,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit34",
+                    "nombre": "Lago mayor, zona El Faro (Pomata), produccion acuicola a menor escala",
+                    "departamento": "PUNO",
+                    "fecha": "3\/11\/2019",
+                    "hora": "9:50",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.78",
+                    "coordenada": "POINT(468839 8202737)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.291620215,
+                        -16.255889657
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 38,
+                    "numero": 38,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit35",
+                    "nombre": "Lago mayor, frente a Cuturapi",
+                    "departamento": "PUNO",
+                    "fecha": "3\/11\/2019",
+                    "hora": "9:50",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.77",
+                    "coordenada": "POINT(481724 8204935)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.171019292,
+                        -16.236151026
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 39,
+                    "numero": 39,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit41",
+                    "nombre": "Lago menor, frente a Unicachi",
+                    "departamento": "PUNO",
+                    "fecha": "9\/11\/2019",
+                    "hora": "7:40",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.53",
+                    "coordenada": "POINT(506591 8202211)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -68.938316368,
+                        -16.260836498
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 40,
+                    "numero": 40,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit46",
+                    "nombre": "Lago menor, frente a Ollaraya",
+                    "departamento": "PUNO",
+                    "fecha": "9\/11\/2019",
+                    "hora": "9:00",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.65",
+                    "coordenada": "POINT(499001 8198080)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.009351179,
+                        -16.298190237
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 41,
+                    "numero": 41,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit47",
+                    "nombre": "Lago menor, frente a Ollaraya",
+                    "departamento": "PUNO",
+                    "fecha": "9\/11\/2019",
+                    "hora": "8:20",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.57",
+                    "coordenada": "POINT(505071 8197329)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -68.952531076,
+                        -16.30497427
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 42,
+                    "numero": 42,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit50",
+                    "nombre": "Lago menor, frente a Copani",
+                    "departamento": "PUNO",
+                    "fecha": "9\/11\/2019",
+                    "hora": "9:40",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.59",
+                    "coordenada": "POINT(503194 8191471)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -68.970093361,
+                        -16.357934568
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 43,
+                    "numero": 43,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit53",
+                    "nombre": "Lago menor, frente a Copani - Zepita",
+                    "departamento": "PUNO",
+                    "fecha": "9\/11\/2019",
+                    "hora": "10:20",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.64",
+                    "coordenada": "POINT(500962 8184728)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -68.990989625,
+                        -16.418893773
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 44,
+                    "numero": 44,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit54",
+                    "nombre": "Lago menor, frente a Zepita",
+                    "departamento": "PUNO",
+                    "fecha": "9\/11\/2019",
+                    "hora": "11:10",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.63",
+                    "coordenada": "POINT(499087 8177898)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.008554131,
+                        -16.480637194
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "gid": 45,
+                    "numero": 45,
+                    "pais": "PERU",
+                    "cuenca": "LAGO TITICACA",
+                    "cuerco": "Lago Titicaca",
+                    "codigo": "LTit56",
+                    "nombre": "Lago menor, frente a Desaguadero",
+                    "departamento": "PUNO",
+                    "fecha": "9\/11\/2019",
+                    "hora": "12:00",
+                    "tipo": "Lago",
+                    "eca": "ECA 4 E1",
+                    "utm": 19,
+                    "ph": "8.99",
+                    "coordenada": "POINT(496233 8168941)"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -69.035308691,
+                        -16.561605372
+                    ]
+                }
+            }
+        ]
+    },
+    "<option selected>Seleccione par\u00e1metro<\/option><option value='AyG_mg_l' selected>Aceites y Grasas (mg\/L)<\/option><option value='CW_mg_l'>Cianuro WAD (mg\/L)<\/option><option value='Clorofila_'>Clorofila a (mg\/L)<\/option><option value='Cloruros'>Cloruros (mg\/L)<\/option><option value='CE_s_c'>Conductividad  (\u00b5S\/cm)<\/option><option value='DBO5_mg_O'>DBO5 (mg O2\/L)<\/option><option value='DQO_mg_O2'>DQO  (mg O2\/L)<\/option><option value='Fenoles_m'>Fenoles (mg\/L)<\/option><option value='NH3_mg_l'>Amoniaco (mg\/L)<\/option><option value='PO43_mg'>Fosfatos (mg P\/L)<\/option><option value='PO43_P_mg'>Fosfatos como P (mg P\/L)<\/option><option value='PT_mg_p_l'>F\u00f3sforo Total  (mg P\/L)<\/option><option value='NO3_mg_n'>Nitratos (mg N\/L)<\/option><option value='NO3_N_mg'>Nitratos como N (mg N\/L)<\/option><option value='NO2_mg_n'>Nitritos (mg N\/L)<\/option><option value='NO2_N_mg'>Nitritos como N (mg N\/L)<\/option><option value='NT_mg_n_l'>Nitr\u00f3geno Total (mg N\/L)<\/option><option value='OD_mg_o2'>Ox\u00edgeno Disuelto (mg O2\/L)<\/option><option value='pH'>Potencial de Hidr\u00f3geno (pH)<\/option><option value='SST_mg_l'>S\u00f3lidos Suspendidos Totales (mg\/L)<\/option><option value='SDT_mg_l'>S\u00f3lidos Disueltos Totales (mg\/L)<\/option><option value='SO42_mg'>Sulfatos (mg\/L)<\/option><option value='S_mg_l'>Sulfuros (mg\/L)<\/option><option value='T_celsius'>Temperatura  (\u00b0Celsius)<\/option><option value='Transp_m'>Transparencia  (M)<\/option><option value='NTU_Tur'>Turbiedad<\/option><option value='Al_mg_l'>Aluminio (mg\/L)<\/option><option value='Sb_mg_l'>Antimonio (mg\/L)<\/option><option value='As_mg_l'>Ars\u00e9nico (mg\/L)<\/option><option value='Ba_mg_l'>Bario (mg\/L)<\/option><option value='Be_mg_l'>Berilio (mg\/L)<\/option><option value='Bi_mg_l'>Bismuto (mg\/L)<\/option><option value='B_mg_l'>Boro (mg\/L)<\/option><option value='Ca_mg_l'>Calcio (mg\/L)<\/option><option value='Cd_mg_l'>Cadmio (mg\/L)<\/option><option value='Ce_mg_l'>Cesio (mg\/L)<\/option><option value='Cu_mg_l'>Cobre (mg\/L)<\/option><option value='Co_mg_l'>Cobalto (mg\/L)<\/option><option value='CrT_mg_l'>Cromo Total (mg\/L)<\/option><option value='CrVI_mg_l'>Cromo Hexavalente (mg\/L)<\/option><option value='Fe_mg_l'>Hierro (mg\/L)<\/option><option value='Sn_mg_l'>Esta\u00f1o (mg\/L)<\/option><option value='Sr_mg_l'>Estroncio (mg\/L)<\/option><option value='Li_mg_l'>Litio (mg\/L)<\/option><option value='Mg_mg_l'>Magnesio (mg\/L)<\/option><option value='Mn_mg_l'>Manganeso (mg\/L)<\/option><option value='Hg_mg_l'>Mercurio (mg\/L)<\/option><option value='Mo_mg_l'>Molibdeno (mg\/L)<\/option><option value='Ni_mg_l'>Niquel (mg\/L)<\/option><option value='Ag_mg_l'>Plata (mg\/L)<\/option><option value='K_mg_l'>Potasio (mg\/L)<\/option><option value='Pb_mg_l'>Plomo (mg\/L)<\/option><option value='Na_mg_l'>Sodio (mg\/L)<\/option><option value='Se_mg_l'>Selenio (mg\/L)<\/option><option value='SiO2_mg_l'>Di\u00f3xido de Silicio (mg\/L)<\/option><option value='Si_mg_l'>Silicio (mg\/L)<\/option><option value='Tl_mg_l'>Talio (mg\/L)<\/option><option value='Ti_mg_l'>Titanio (mg\/L)<\/option><option value='U_mg_l'>Uranio (mg\/L)<\/option><option value='V_mg_l'>Vanadio (mg\/L)<\/option><option value='Zn_mg_l'>Zinc (mg\/L)<\/option><option value='ColTe_nmp'>Coliformes Termotolerantes (NMP\/100mL)<\/option><option value='ColF_nmp'>Coliformes Fecales (NMP\/100mL)<\/option><option value='HTP_mg_l'>Hidrocarburos Totales de Petr\u00f3leo (mg\/L)<\/option>",
+    45
+]

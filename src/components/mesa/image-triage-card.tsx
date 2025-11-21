@@ -50,10 +50,10 @@ export function ImageTriageCard({ report, onDecision }: ImageTriageCardProps) {
             <span>({timeAgo})</span>
         </div>
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <Button variant="outline" size="sm" onClick={() => onDecision(report.id, 'reject')}>
+          <Button variant="outline" size="sm" onClick={() => onDecision(report.id.toString(), 'reject')}>
             <X className="mr-2 text-red-500" /> Rechazar
           </Button>
-          <Button size="sm" onClick={() => onDecision(report.id, 'approve')} className="bg-green-600 hover:bg-green-700">
+          <Button size="sm" onClick={() => onDecision(report.id.toString(), 'approve')} className="bg-green-600 hover:bg-green-700">
             <Check className="mr-2" /> Aprobar
           </Button>
         </div>

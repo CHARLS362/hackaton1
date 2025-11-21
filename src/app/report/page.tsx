@@ -20,11 +20,24 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { Camera, RefreshCcw, Video, VideoOff } from 'lucide-react';
+import { Camera, RefreshCcw, Video, VideoOff, Loader2 } from 'lucide-react';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { LocationPicker } from '@/components/report/location-picker';
+import { z } from 'zod';
+
+// Zod schema for form validation
+const formSchema = z.object({
+    reporter_name: z.string().optional(),
+    reporter_email: z.string().email({ message: "Por favor, introduce un email válido." }).optional().or(z.literal('')),
+    incident_type: z.string({ required_error: "Por favor, selecciona un tipo de incidente." }),
+    latitude: z.number(),
+    longitude: z.number(),
+    description: z.string().optional(),
+    photo_evidence: z.string().optional(),
+});
+
 
 export default function ReportPage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
@@ -34,10 +47,13 @@ export default function ReportPage() {
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [location, setLocation] = useState<[number, number] | null>(null);
+  const [incidentType, setIncidentType] = useState<string>('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const stopCamera = useCallback(() => {
     if (streamRef.current) {
@@ -51,7 +67,6 @@ export default function ReportPage() {
   }, []);
 
   useEffect(() => {
-    // Cleanup function to stop camera when component unmounts
     return () => {
       stopCamera();
     };
@@ -75,7 +90,7 @@ export default function ReportPage() {
         video: {
             width: { ideal: 1280 },
             height: { ideal: 720 },
-            facingMode: "environment" // Prioritize rear camera
+            facingMode: "environment"
         }
       };
 
@@ -85,7 +100,7 @@ export default function ReportPage() {
         setHasCameraPermission(true);
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
-          videoRef.current.play(); // Explicitly play the video
+          videoRef.current.play();
         }
         setIsCameraOn(true);
       } catch (error) {
@@ -112,7 +127,7 @@ export default function ReportPage() {
       const context = canvas.getContext('2d');
       if (context) {
         context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.9); // Use JPEG with quality
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
         setCapturedImage(dataUrl);
         stopCamera();
       }
@@ -121,25 +136,86 @@ export default function ReportPage() {
 
   const handleRetake = () => {
     setCapturedImage(null);
-    toggleCamera(); // Re-activate the camera
+    toggleCamera();
   };
   
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     if (!location) {
         toast({
             variant: "destructive",
             title: "Ubicación requerida",
             description: "Por favor, marca la ubicación del incidente en el mapa.",
         });
+        setIsSubmitting(false);
         return;
     }
-    // Logic to handle form submission will go here
-    console.log("Submitting report...", { location, image: capturedImage ? 'Image attached' : 'No image' });
-    toast({
-        title: "Reporte Enviado (Simulación)",
-        description: "Tu reporte ha sido recibido y será analizado por nuestro equipo.",
-      });
+    
+    if (!incidentType) {
+        toast({
+            variant: "destructive",
+            title: "Tipo de incidente requerido",
+            description: "Por favor, selecciona un tipo de incidente.",
+        });
+        setIsSubmitting(false);
+        return;
+    }
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+        reporter_name: formData.get('name') as string,
+        reporter_email: formData.get('email') as string,
+        incident_type: incidentType,
+        latitude: location[0],
+        longitude: location[1],
+        description: formData.get('description') as string,
+        photo_evidence: capturedImage || undefined
+    };
+
+    const validation = formSchema.safeParse(data);
+
+    if (!validation.success) {
+        validation.error.errors.forEach(err => {
+            toast({ variant: "destructive", title: "Dato inválido", description: err.message });
+        });
+        setIsSubmitting(false);
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/reports', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(validation.data),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Algo salió mal');
+        }
+
+        toast({
+            title: "Reporte Enviado Correctamente",
+            description: "Gracias por tu colaboración. Tu reporte ha sido recibido.",
+        });
+        
+        // Reset form
+        formRef.current?.reset();
+        setCapturedImage(null);
+        setLocation(null);
+        setIncidentType('');
+
+    } catch (error: any) {
+        toast({
+            variant: "destructive",
+            title: "Error al enviar el reporte",
+            description: error.message || "No se pudo enviar el reporte. Inténtalo de nuevo.",
+        });
+    } finally {
+        setIsSubmitting(false);
+    }
   }
 
   return (
@@ -175,16 +251,17 @@ export default function ReportPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Tu Nombre (Opcional)</Label>
-                    <Input id="name" placeholder="Ej: Juan Pérez" />
+                    <Input id="name" name="name" placeholder="Ej: Juan Pérez" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Tu Email (Opcional)</Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="Ej: juan.perez@email.com"
                     />
@@ -193,22 +270,22 @@ export default function ReportPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="incident-type">Tipo de Incidente</Label>
-                  <Select>
+                  <Select name="incident_type" onValueChange={setIncidentType} value={incidentType}>
                     <SelectTrigger id="incident-type">
                       <SelectValue placeholder="Selecciona el tipo de incidente" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="vertido">
+                      <SelectItem value="Vertido de Residuos">
                         Vertido de Residuos
                       </SelectItem>
-                      <SelectItem value="contaminacion">
+                      <SelectItem value="Contaminación del Agua">
                         Contaminación del Agua
                       </SelectItem>
-                      <SelectItem value="fauna">Fauna Afectada</SelectItem>
-                      <SelectItem value="deforestacion">
+                      <SelectItem value="Fauna Afectada">Fauna Afectada</SelectItem>
+                      <SelectItem value="Deforestación en Orillas">
                         Deforestación en Orillas
                       </SelectItem>
-                      <SelectItem value="otro">Otro</SelectItem>
+                      <SelectItem value="Otro">Otro</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -228,6 +305,7 @@ export default function ReportPage() {
                   </Label>
                   <Textarea
                     id="description"
+                    name="description"
                     placeholder="Describe lo que observaste con el mayor detalle posible."
                     rows={5}
                   />
@@ -280,8 +358,9 @@ export default function ReportPage() {
                   <canvas ref={canvasRef} className="hidden"></canvas>
                 </div>
 
-                <Button type="submit" className="w-full">
-                  Enviar Reporte
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                  {isSubmitting ? 'Enviando...' : 'Enviar Reporte'}
                 </Button>
               </form>
             </CardContent>

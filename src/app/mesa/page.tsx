@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import { ReportQueue } from '@/components/mesa/report-queue';
-import { IncidentHeatmap } from '@/components/mesa/incident-heatmap';
 import { reports, Report } from '@/data/reports';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Layers, ListTodo } from 'lucide-react';
+import IncidentMapLoader from '@/components/mesa/heatmap-loader';
+import { cn } from '@/lib/utils';
 
 export default function MesaPage() {
   const [reportQueue, setReportQueue] = useState<Report[]>(reports);
   const [approvedReports, setApprovedReports] = useState<Report[]>([]);
+  const [activeTab, setActiveTab] = useState('triage');
 
   const handleDecision = (reportId: string, decision: 'approve' | 'reject') => {
     const report = reportQueue.find(r => r.id === reportId);
@@ -34,7 +36,7 @@ export default function MesaPage() {
           </p>
         </header>
 
-        <Tabs defaultValue="triage" className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto">
             <TabsTrigger value="triage">
               <ListTodo className="mr-2" />
@@ -46,13 +48,13 @@ export default function MesaPage() {
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="triage" className="mt-8">
+          <div className={cn("mt-8", activeTab !== 'triage' && 'hidden')}>
             <ReportQueue reports={reportQueue} onDecision={handleDecision} />
-          </TabsContent>
+          </div>
 
-          <TabsContent value="heatmap" className="mt-8">
-            <IncidentHeatmap reports={reports} />
-          </TabsContent>
+          <div className={cn("mt-8", activeTab !== 'heatmap' && 'hidden')}>
+            <IncidentMapLoader reports={approvedReports.length > 0 ? approvedReports : reports} />
+          </div>
         </Tabs>
       </div>
     </div>

@@ -10,23 +10,20 @@ import {
 import { FlaskConical } from "lucide-react"
 
 const data = [
-    { name: "Spaceflight", value: 120 },
-    { name: "Animal", value: 98 },
-    { name: "Combined", value: 85 },
-    { name: "Systematic", value: 70 },
-    { name: "Polyphasic", value: 40 },
-    { name: "Expert", value: 35 },
-    { name: "Rat", value: 30 },
-    { name: "Two-sample", value: 25 },
-    { name: "Integrated", value: 22 },
-    { name: "Whole", value: 20 },
-    { name: "Hindlimb", value: 18 },
-    { name: "RNA-seq", value: 15 },
-    { name: "hypothesis/review", value: 12 },
-    { name: "Proteomic", value: 10 },
-    { name: "Adult-only", value: 8 },
-    { name: "Field", value: 6 },
-    { name: "double-blinded", value: 4 },
+    { name: "Análisis Químico", value: 95 },
+    { name: "Monitoreo in-situ", value: 82 },
+    { name: "Modelado Hidrológico", value: 65 },
+    { name: "Teledetección", value: 58 },
+    { name: "Análisis Bacteriológico", value: 52 },
+    { name: "Bioensayos", value: 45 },
+    { name: "Estudios de Sedimentos", value: 41 },
+    { name: "Análisis Estadístico", value: 38 },
+    { name: "Cromatografía", value: 32 },
+    { name: "Espectrometría", value: 28 },
+    { name: "Encuestas Socioeconómicas", value: 25 },
+    { name: "SIG", value: 22 },
+    { name: "Evaluación de Impacto", value: 18 },
+    { name: "Microscopía", value: 15 },
 ].reverse();
 
 
@@ -35,7 +32,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       return (
         <div className="bg-slate-800 p-2 border border-slate-700 rounded-lg shadow-lg">
           <p className="font-bold text-white">{`${label}`}</p>
-          <p className="text-sm text-amber-400">{`Publicaciones: ${payload[0].value}`}</p>
+          <p className="text-sm text-amber-400">{`Artículos: ${payload[0].value}`}</p>
         </div>
       );
     }
@@ -48,7 +45,7 @@ export function MethodologiesChart() {
       <CardHeader>
         <div className="flex items-center gap-2">
           <FlaskConical className="w-5 h-5 text-amber-400" />
-          <CardTitle className="text-slate-200">Metodologías de investigación</CardTitle>
+          <CardTitle className="text-slate-200">Metodologías de Investigación</CardTitle>
         </div>
       </CardHeader>
       <CardContent>
@@ -67,7 +64,7 @@ export function MethodologiesChart() {
                 fontSize={10}
                 tickLine={false}
                 axisLine={false}
-                width={100}
+                width={120}
               />
               <Tooltip cursor={{ fill: 'rgba(255,255,255,0.05)' }} content={<CustomTooltip />} />
               <Bar dataKey="value" fill="#facc15" radius={[0, 4, 4, 0]} barSize={10} />

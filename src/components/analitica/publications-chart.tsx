@@ -18,15 +18,16 @@ import {
 import { Calendar } from "lucide-react"
 
 const chartData = [
-    { year: "2010", publications: 10 },
-    { year: "2012", publications: 15 },
-    { year: "2014", publications: 22 },
-    { year: "2016", publications: 28 },
-    { year: "2018", publications: 35 },
-    { year: "2020", publications: 55 },
-    { year: "2021", publications: 20 },
-    { year: "2023", publications: 48 },
-    { year: "2024", publications: 68 },
+    { year: "2015", publications: 12 },
+    { year: "2016", publications: 18 },
+    { year: "2017", publications: 25 },
+    { year: "2018", publications: 22 },
+    { year: "2019", publications: 30 },
+    { year: "2020", publications: 28 },
+    { year: "2021", publications: 35 },
+    { year: "2022", publications: 45 },
+    { year: "2023", publications: 58 },
+    { year: "2024", publications: 14 },
 ]
 
 
@@ -36,7 +37,7 @@ export function PublicationsChart() {
       <CardHeader>
         <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-primary" />
-            <CardTitle className="text-slate-200">Publicaciones a lo largo del tiempo</CardTitle>
+            <CardTitle className="text-slate-200">Publicaciones a lo Largo del Tiempo</CardTitle>
         </div>
       </CardHeader>
       <CardContent>

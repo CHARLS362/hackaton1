@@ -26,32 +26,32 @@ export default function AnaliticaPage() {
           </div>
           <p className="mt-3 text-lg text-slate-600">
             Información avanzada y visualizaciones interactivas de la base de
-            datos de investigación.
+            datos de investigación sobre el Lago Titicaca.
           </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
-            title="Total de papeles"
-            value="559"
+            title="Total de Artículos"
+            value="287"
             icon={Book}
             color="blue"
           />
           <StatCard
-            title="Autores únicos"
-            value="2,572"
+            title="Autores Únicos"
+            value="950"
             icon={Users}
             color="purple"
           />
           <StatCard
-            title="Revistas"
-            value="197"
+            title="Revistas Indexadas"
+            value="85"
             icon={FileText}
             color="green"
           />
           <StatCard
             title="Instituciones"
-            value="748"
+            value="120"
             icon={Building}
             color="yellow"
           />

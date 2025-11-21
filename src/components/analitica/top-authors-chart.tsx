@@ -10,16 +10,16 @@ import {
 import { Users } from "lucide-react"
 
 const authorData = [
-  { name: "K. Venkateswaran", publications: 52 },
-  { name: "Christopher E. Mason", publications: 41 },
-  { name: "Sylvain V. Costes", publications: 38 },
-  { name: "Nitin K. Singh", publications: 35 },
-  { name: "Afshin Beheshti", publications: 28 },
-  { name: "Anna-Lisa Paul", publications: 26 },
-  { name: "Nathaniel J. Szewczyk", publications: 24 },
-  { name: "Fathi Karouia", publications: 23 },
-  { name: "Robert J. Ferl", publications: 22 },
-  { name: "Michael J. Pecaut", publications: 21 },
+  { name: "García, M.", publications: 12 },
+  { name: "Quispe, A.", publications: 10 },
+  { name: "Choque, S.", publications: 9 },
+  { name: "Mendoza, B.", publications: 8 },
+  { name: "Ríos, D.", publications: 8 },
+  { name: "Vargas, R.", publications: 7 },
+  { name: "Gomez, H.", publications: 7 },
+  { name: "Paredes, I.", publications: 6 },
+  { name: "Mamani, J.", publications: 6 },
+  { name: "Rojas, L.", publications: 5 },
 ].reverse();
 
 const PURPLE_COLORS = ["#c084fc", "#a855f7", "#9333ea", "#7e22ce", "#6b21a8", "#5b21b6"];
@@ -42,7 +42,7 @@ export function TopAuthorsChart() {
       <CardHeader>
         <div className="flex items-center gap-2">
           <Users className="w-5 h-5 text-purple-400" />
-          <CardTitle className="text-slate-200">Autores más destacados</CardTitle>
+          <CardTitle className="text-slate-200">Autores más Productivos</CardTitle>
         </div>
       </CardHeader>
       <CardContent>

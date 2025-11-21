@@ -10,11 +10,11 @@ import {
 import { FileText } from "lucide-react"
 
 const data = [
-  { name: "npj Microgravity", value: 29.45 },
-  { name: "International Journal of Molecular Sciences", value: 20.55 },
-  { name: "Scientific Reports", value: 17.81 },
-  { name: "Life", value: 16.44 },
-  { name: "Frontiers in Plant Science", value: 15.75 },
+  { name: "Water Research", value: 25.4 },
+  { name: "Environmental Pollution", value: 22.1 },
+  { name: "Science of The Total Environment", value: 18.5 },
+  { name: "Journal of Hydrology", value: 15.2 },
+  { name: "Revista de Biología Tropical", value: 18.8 },
 ]
 
 const COLORS = ["#10B981", "#34D399", "#6EE7B7", "#A7F3D0", "#D1FAE5"].reverse();
@@ -50,7 +50,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={COLORS[index % COLORS.length]} fill="none" />
       <circle cx={ex} cy={ey} r={2} fill={COLORS[index % COLORS.length]} stroke="none" />
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#94a3b8" fontSize={12}>
-        {`${name} (${(percent * 100).toFixed(2)}%)`}
+        {`${name} (${(percent * 100).toFixed(0)}%)`}
       </text>
     </g>
   );
@@ -63,10 +63,10 @@ const CustomizedLegend = (props: any) => {
   return (
     <>
       <text x={cx} y={cy - 10} textAnchor="middle" dominantBaseline="central" fill="#fff" fontSize="16" fontWeight="bold">
-        Top 5
+        Top 5 Revistas
       </text>
       <text x={cx} y={cy + 15} textAnchor="middle" dominantBaseline="central" fill="#A7F3D0" fontSize="24" fontWeight="bold">
-        {Math.round(total)}
+        {`${total.toFixed(0)}%`}
       </text>
     </>
   );
@@ -79,7 +79,7 @@ export function TopJournalsChart() {
       <CardHeader>
         <div className="flex items-center gap-2">
           <FileText className="w-5 h-5 text-green-400" />
-          <CardTitle className="text-slate-200">Revistas más importantes</CardTitle>
+          <CardTitle className="text-slate-200">Revistas de Mayor Impacto</CardTitle>
         </div>
       </CardHeader>
       <CardContent>

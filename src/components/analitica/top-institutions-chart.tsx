@@ -10,16 +10,16 @@ import {
 import { Building } from "lucide-react"
 
 const data = [
-    { name: 'NASA Ames Research Center', size: 40, fill: '#f472b6' },
-    { name: 'University of Florida', size: 25, fill: '#60a5fa' },
-    { name: 'Oregon State Univ...', size: 15, fill: '#fbbf24' },
-    { name: 'Weill Cornell Med...', size: 15, fill: '#a3e635' },
-    { name: 'Arizona State Uni...', size: 15, fill: '#4ade80' },
-    { name: 'Jet Pro...', size: 10, fill: '#86efac' },
-    { name: 'Loma Li...', size: 10, fill: '#bbf7d0' },
-    { name: 'Jet Propulsi...', size: 10, fill: '#93c5fd' },
-    { name: 'NASA Johns...', size: 10, fill: '#e9d5ff' },
-    { name: 'Te...', size: 8, fill: '#a5b4fc' },
+    { name: 'UNAP', size: 40, fill: '#60a5fa' },
+    { name: 'UMSA', size: 35, fill: '#f472b6' },
+    { name: 'PELT', size: 25, fill: '#a3e635' },
+    { name: 'IRD (Francia)', size: 22, fill: '#fbbf24' },
+    { name: 'ANA', size: 18, fill: '#4ade80' },
+    { name: 'UPCH', size: 15, fill: '#86efac' },
+    { name: 'SENAMHI', size: 12, fill: '#bbf7d0' },
+    { name: 'UNA', size: 10, fill: '#93c5fd' },
+    { name: 'DIGESA', size: 9, fill: '#e9d5ff' },
+    { name: 'IMARPE', size: 8, fill: '#a5b4fc' },
 ];
 
 const CustomTooltip = ({ active, payload }: any) => {
@@ -43,7 +43,7 @@ export function TopInstitutionsChart() {
         <CardHeader>
           <div className="flex items-center gap-2">
             <Building className="w-5 h-5 text-amber-400" />
-            <CardTitle className="text-slate-200">Instituciones de élite</CardTitle>
+            <CardTitle className="text-slate-200">Principales Instituciones</CardTitle>
           </div>
         </CardHeader>
         <CardContent>

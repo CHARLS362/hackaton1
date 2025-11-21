@@ -21,11 +21,12 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Camera, RefreshCcw, Video, VideoOff, Loader2 } from 'lucide-react';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { LocationPicker } from '@/components/report/location-picker';
 import { z } from 'zod';
+import Webcam from "react-webcam";
 
 // Zod schema for form validation
 const formSchema = z.object({
@@ -44,99 +45,32 @@ export default function ReportPage() {
   const { toast } = useToast();
 
   const [isCameraOn, setIsCameraOn] = useState(false);
-  const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [location, setLocation] = useState<[number, number] | null>(null);
   const [incidentType, setIncidentType] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const streamRef = useRef<MediaStream | null>(null);
+  const webcamRef = useRef<Webcam>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-  const stopCamera = useCallback(() => {
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
-      streamRef.current = null;
-    }
-    if (videoRef.current) {
-        videoRef.current.srcObject = null;
-    }
-    setIsCameraOn(false);
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      stopCamera();
-    };
-  }, [stopCamera]);
-  
-  const toggleCamera = async () => {
+  const toggleCamera = () => {
     if (isCameraOn) {
-      stopCamera();
-    } else {
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        toast({
-          variant: 'destructive',
-          title: 'Cámara no Soportada',
-          description: 'Tu navegador no soporta el acceso a la cámara.',
-        });
-        setHasCameraPermission(false);
-        return;
-      }
-
-      const constraints = {
-        video: {
-            width: { ideal: 1280 },
-            height: { ideal: 720 },
-            facingMode: "environment"
-        }
-      };
-
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia(constraints);
-        streamRef.current = stream;
-        setHasCameraPermission(true);
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-          videoRef.current.play();
-        }
-        setIsCameraOn(true);
-      } catch (error) {
-        console.error('Error accessing camera:', error);
-        setHasCameraPermission(false);
-        toast({
-          variant: 'destructive',
-          title: 'Acceso a la Cámara Denegado',
-          description:
-            'Por favor, habilita los permisos de cámara en tu navegador para usar esta función.',
-        });
-        stopCamera();
-      }
+      setCapturedImage(null); // Reset any previous capture
     }
+    setIsCameraOn(!isCameraOn);
   };
 
-
-  const handleCapture = () => {
-    if (videoRef.current && canvasRef.current && streamRef.current) {
-      const video = videoRef.current;
-      const canvas = canvasRef.current;
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
-        setCapturedImage(dataUrl);
-        stopCamera();
-      }
+  const handleCapture = useCallback(() => {
+    if (webcamRef.current) {
+      const imageSrc = webcamRef.current.getScreenshot();
+      setCapturedImage(imageSrc);
+      setIsCameraOn(false); // Turn off camera after capture
     }
-  };
+  }, [webcamRef]);
 
   const handleRetake = () => {
     setCapturedImage(null);
-    toggleCamera();
+    setIsCameraOn(true);
   };
   
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -217,6 +151,12 @@ export default function ReportPage() {
         setIsSubmitting(false);
     }
   }
+  
+  const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "environment"
+  };
 
   return (
     <div>
@@ -319,20 +259,17 @@ export default function ReportPage() {
                         {isCameraOn ? 'Desactivar Cámara' : 'Activar Cámara'}
                     </Button>
                    )}
-
-                  {hasCameraPermission === false && !isCameraOn && (
-                    <Alert variant="destructive">
-                      <AlertTitle>Cámara no disponible</AlertTitle>
-                      <AlertDescription>
-                        No se pudo acceder a la cámara. Por favor, verifica los
-                        permisos de tu navegador.
-                      </AlertDescription>
-                    </Alert>
-                  )}
                   
                   <div className="w-full bg-slate-900 rounded-lg overflow-hidden aspect-video relative">
-                    {!capturedImage && isCameraOn && (
-                        <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                    {isCameraOn && !capturedImage && (
+                      <Webcam
+                        audio={false}
+                        ref={webcamRef}
+                        screenshotFormat="image/jpeg"
+                        videoConstraints={videoConstraints}
+                        className="w-full h-full object-cover"
+                        onUserMediaError={() => toast({ variant: "destructive", title: "Error de Cámara", description: "No se pudo acceder a la cámara. Revisa los permisos."})}
+                      />
                     )}
                     {capturedImage && (
                         <Image src={capturedImage} alt="Evidencia capturada" fill className="object-cover" />
@@ -355,7 +292,6 @@ export default function ReportPage() {
                         <RefreshCcw className="mr-2 h-4 w-4" /> Tomar de Nuevo
                     </Button>
                   )}
-                  <canvas ref={canvasRef} className="hidden"></canvas>
                 </div>
 
                 <Button type="submit" className="w-full" disabled={isSubmitting}>

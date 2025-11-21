@@ -5,7 +5,7 @@ import { z } from 'zod';
 // Define el esquema para validar los datos de entrada
 const reportSchema = z.object({
   reporter_name: z.string().optional(),
-  reporter_email: z.string().email().optional(),
+  reporter_email: z.string().email().optional().or(z.literal('')),
   incident_type: z.string(),
   latitude: z.number(),
   longitude: z.number(),
@@ -68,9 +68,12 @@ export async function GET(request: Request) {
         // Transform data to match frontend expectations
         const reports = (rows as any[]).map(row => ({
             ...row,
-            location: { lat: row.lat, lng: row.lng },
-            // The frontend expects lat/lng directly on the report, and also inside location
-            // The query already renames them, so we just construct the nested object
+            lat: parseFloat(row.lat),
+            lng: parseFloat(row.lng),
+            location: { 
+                lat: parseFloat(row.lat), 
+                lng: parseFloat(row.lng) 
+            },
         }));
 
         return NextResponse.json(reports);
